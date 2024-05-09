@@ -15,7 +15,7 @@ MonoBehaviour:
   Guid: 71000002
   Name: Fanta
   Description: 'this is a soda drink '
-  Cost: 0
+  Cost: 25
   Sprite: {fileID: 0}
   Country: 3
   FoodType: 3

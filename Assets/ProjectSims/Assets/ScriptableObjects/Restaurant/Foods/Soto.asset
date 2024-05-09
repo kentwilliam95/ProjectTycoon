@@ -15,7 +15,7 @@ MonoBehaviour:
   Guid: 71000013
   Name: Soto
   Description: Food
-  Cost: 0
+  Cost: 150
   Sprite: {fileID: 0}
   Country: 0
   FoodType: 1

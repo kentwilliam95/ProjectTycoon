@@ -15,7 +15,7 @@ MonoBehaviour:
   Guid: 71000005
   Name: Water
   Description: Bottle of Water
-  Cost: 0
+  Cost: 25
   Sprite: {fileID: 0}
   Country: 0
   FoodType: 3

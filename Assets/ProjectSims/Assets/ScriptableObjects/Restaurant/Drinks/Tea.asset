@@ -15,7 +15,7 @@ MonoBehaviour:
   Guid: 71000004
   Name: Tea
   Description: A normal unsweetened Tea
-  Cost: 0
+  Cost: 25
   Sprite: {fileID: 0}
   Country: 0
   FoodType: 3
