@@ -46,17 +46,6 @@ namespace ProjectSims.Assets.ScriptableObjects.Restaurant
 
         public override void Visit(Entity entity)
         {
-            var isContain = GetCustomerData(entity.Guid);
-            if (isContain == null)
-            {
-                CustomerData data = new CustomerData(entity.Guid);
-
-                data.GenerateHistory(_drinks, out int start, out int count);
-                data.GenerateHistory(_mains, out start, out count);
-
-                AddCustomer(entity, data);
-            }
-
             Customer workCustomer = new Customer();
             workCustomer.Initialize(entity, this);
             entity.ChangeWork(workCustomer);
@@ -65,13 +54,20 @@ namespace ProjectSims.Assets.ScriptableObjects.Restaurant
         public List<ItemBoughtHistory> GetListFoodHistory(Entity entity)
         {
             if (_historyFood == null)
-            {
                 _historyFood = new List<ItemBoughtHistory>();
-                for (int i = 0; i < _mains.Count; i++)
+            
+            _historyFood.Clear();
+            for (int i = 0; i < _mains.Count; i++)
+            {
+                var history = GetItemHistory(entity.Guid, _mains[i]);
+                if (history != null)
+                    _historyFood.Add(history);
+                else
                 {
-                    var history = GetItemHistory(entity.Guid, _mains[i]);
-                    if (history != null)
-                        _historyFood.Add(history);
+                    // Todo: Optimize using object pooling
+                    ItemBoughtHistory itemBoughtHistory = new ItemBoughtHistory();
+                    itemBoughtHistory.Initialize(_mains[i]);
+                    _historyFood.Add(itemBoughtHistory);
                 }
             }
 
@@ -81,13 +77,20 @@ namespace ProjectSims.Assets.ScriptableObjects.Restaurant
         public List<ItemBoughtHistory> GetListDrinkHistory(Entity entity)
         {
             if (_historyDrink == null)
-            {
                 _historyDrink = new List<ItemBoughtHistory>();
-                for (int i = 0; i < _drinks.Count; i++)
+            
+            _historyDrink.Clear();
+            for (int i = 0; i < _drinks.Count; i++)
+            {
+                var history = GetItemHistory(entity.Guid, _drinks[i]);
+                if (history != null)
+                    _historyDrink.Add(history);
+                else
                 {
-                    var history = GetItemHistory(entity.Guid, _drinks[i]);
-                    if (history != null)
-                        _historyDrink.Add(history);
+                    // Todo: Optimize using object pooling
+                    ItemBoughtHistory itemBoughtHistory = new ItemBoughtHistory();
+                    itemBoughtHistory.Initialize(_drinks[i]);
+                    _historyDrink.Add(itemBoughtHistory);
                 }
             }
             return _historyDrink;

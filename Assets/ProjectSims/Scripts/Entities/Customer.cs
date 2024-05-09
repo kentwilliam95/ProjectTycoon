@@ -11,7 +11,7 @@ namespace ProjectSims.Scripts
         public override void Initialize(Entity entity, PlaceSO place)
         {
             base.Initialize(entity, place);
-            // _stateMachine.ChangeState(new ActivityCustomerWaiting());
+            _stateMachine.ChangeState(new ActivityCustomerWaiting());
         }
     }
 }

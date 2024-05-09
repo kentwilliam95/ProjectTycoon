@@ -28,7 +28,7 @@ namespace ProjectSims.Scripts.Place
                 for (int i = 0; i < items.Count; i++)
                 {
                     var history = new ItemBoughtHistory();
-                    history.ChangeItem(items[i]);
+                    history.Initialize(items[i]);
                     _itemBoughtHistories.Add(history);
                 }
 
@@ -41,15 +41,15 @@ namespace ProjectSims.Scripts.Place
                 if (history == null)
                 {
                     history = new ItemBoughtHistory();
-                    history.ChangeItem(item);
+                    history.Initialize(item);
                     history.Add();
-                    history.AddWeightValue(weight);
+                    history.AddWeight(weight);
                     _itemBoughtHistories.Add(history);
                     return;
                 }
 
                 history.Add();
-                history.AddWeightValue(-weight);
+                history.AddWeight(-weight);
             }
 
             public ItemBoughtHistory GetItemHistory(ItemSO item)
@@ -66,7 +66,7 @@ namespace ProjectSims.Scripts.Place
             public List<ItemBoughtHistory> GetFullHistory()
             {
                 return _itemBoughtHistories;
-            }  
+            }
         }
 
         public class ItemBoughtHistory
@@ -76,18 +76,13 @@ namespace ProjectSims.Scripts.Place
             public ItemSO ItemSo { get; private set; }
             public int _itemId;
 
-            public ItemBoughtHistory()
-            {
-                _count = 0;
-                Weight = 100f;
-            }
-
-            public void ChangeItem(ItemSO item, bool resetCount = false)
+            public void Initialize(ItemSO item, int count = 0, float weight = 100f)
             {
                 _itemId = item.Guid;
                 ItemSo = item;
-                if (resetCount)
-                    _count = 0;
+                
+                _count = count;
+                Weight = weight;
             }
 
             public void Add(int amount = 1)
@@ -95,7 +90,7 @@ namespace ProjectSims.Scripts.Place
                 _count += amount;
             }
 
-            public void AddWeightValue(float value)
+            public void AddWeight(float value)
             {
                 Weight = Mathf.Max(0, Weight + value);
             }
@@ -127,33 +122,22 @@ namespace ProjectSims.Scripts.Place
             return _dictCustomerData[guid];
         }
 
-        public void BuyItem(Entity entity, ItemSO item, int amount) // for entity
+        public void BuyItem(Entity entity, ItemSO item, int amount = 1) // for entity
         {
-            //ToDo: track bought item
-            int customerId = entity.Guid;
-            bool isContains = _dictCustomerData.ContainsKey(customerId);
-            CustomerData custData = default;
-
-            // if (!isContains)
-            // {
-            //     custData = new CustomerData(customerId);
-            //     custData.AddItem(item, Random.Range(0.025f, 0.75f));
-            //     _dictCustomerData.Add(customerId, custData);
-            //     _customerData.Add(custData);
-            // }
-            // else
-            // {
-                custData = _dictCustomerData[customerId];
-                var history = custData.GetItemHistory(item);
-                // if (history == null)
-                // {
-                //     custData.AddItem(item, Random.Range(0.025f, 0.75f));
-                //     return;
-                // }
-
-                history.Add();
-                history.AddWeightValue(-Random.Range(0.75f, 1.25f));
-            // }
+            var customerData = GetCustomerData(entity.Guid);
+            
+            if (customerData == null)
+            {
+                customerData = new CustomerData(entity.Guid);
+                customerData.AddItem(item, 100f);
+                AddCustomer(entity, customerData);
+            }
+            else
+            {
+                var itemHistory = GetItemHistory(entity.Guid, item);
+                itemHistory.Add(amount);
+                itemHistory.AddWeight(Global.WeightReduceValue);
+            }
         }
 
         public ItemBoughtHistory GetItemHistory(int customerID, ItemSO itemSo)

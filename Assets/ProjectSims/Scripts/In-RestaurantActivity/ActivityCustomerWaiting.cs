@@ -50,7 +50,7 @@ namespace ProjectSims.Scripts.ActivityInRestaurant
             var drinkHistory = resto.GetListDrinkHistory(t.Entity);
             var foodHistory = resto.GetListFoodHistory(t.Entity);
             var selectedItem1 = GetSelectiveItem(money, drinkHistory);
-            var selectedItem2 = GetSelectiveItem(money, drinkHistory);
+            var selectedItem2 = GetSelectiveItem(money, foodHistory);
         }
 
         private PlaceSO.ItemBoughtHistory GetSelectiveItem(int money, List<PlaceSO.ItemBoughtHistory> items)
@@ -72,7 +72,7 @@ namespace ProjectSims.Scripts.ActivityInRestaurant
                 {
                     selectedItem.Add(items[i]);
                     money -= items[i].ItemSo.Cost;
-                    break;
+                    return items[i];
                 }
             }
 
