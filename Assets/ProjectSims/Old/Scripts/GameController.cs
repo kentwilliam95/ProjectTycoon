@@ -1,4 +1,5 @@
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using ProjectSims.Scripts.General;
@@ -6,33 +7,51 @@ using ProjectSims.Scripts.Interface;
 using ProjectSims.Scripts.Place;
 using ProjectSims.Scripts.SaveData;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace ProjectSims.Scripts
 {
+    public class myclass
+    {
+        public string Name;
+        public string Gon;
+    }
+
     public class GameController : MonoBehaviour, ISaveLoad
     {
         public static string KeyGameData = "GameData";
 
         private static List<Item> _listItem;
         [SerializeField] private PlaceSO _place;
-        private Entity _entity;
+        private List<Entity> _listEntity;
 
         private void Start()
         {
-            _listItem = new List<Item>();
-            _entity = new Entity();
+            _listItem = new List<Item>(16);
+            _listEntity = new List<Entity>(16);
             _place.Initialize();
+            InitializeEntity();
+        }
+
+        private void InitializeEntity()
+        {
+            for (int i = 0; i < 8; i++)
+                _listEntity.Add(new Entity());
+            
+            for (int i = 0; i < _listEntity.Count; i++)
+            {
+                if(_listEntity[i] != null)
+                    _listEntity[i].ChangeWork(new Padestrian());
+            }
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.G))
+            for (int i = 0; i < _listEntity.Count; i++)
             {
-                for (int i = 0; i < 2; i++)
-                    _place.Visit(_entity);   
+                if(_listEntity[i] != null)
+                    _listEntity[i].Update();
             }
-
-            _entity?.Update();
         }
 
         public string Save()
