@@ -6,6 +6,13 @@ using Simulation.BuffSystem;
 
 namespace Simulation
 {
+    public enum ActivityType
+    {
+        Walking,
+        SearchADrink,
+        Drinking
+    }
+    
     public class Person
     {
         private Activity _activity;
@@ -18,7 +25,7 @@ namespace Simulation
         {
             _statusController = new StatusController();
             _buffCtrl = new BuffController();
-            _activity = new ActivityWaiting(this);
+            _activity = new ActivityWalking(this);
         }
 
         public void ApplyBuff(Buff buff)
@@ -35,10 +42,46 @@ namespace Simulation
         {
             UpdateStatus(dt);
             _buffCtrl.Update(dt);
+            
+            UpdateActivity(dt);
         }
 
         private void UpdateStatus(float dt) { }
 
-        public void ChangeActivity(Activity activity) { }
+        private void UpdateActivity(float dt)
+        {
+            if (_activity == null) { return; }
+            _activity.DoActivity(dt);
+        }
+
+        public void ChangeActivity(ActivityType activityType)
+        {
+            Activity next = null;
+            switch (activityType)
+            {
+                case ActivityType.SearchADrink:
+                    next = new ActivitySearchForADrink(this);
+                    break;
+            }
+
+            if (_activity != null)
+            {
+                _activity.Exit();   
+            }
+
+            _activity = next;
+        }
+
+        public void StartWalkingTo(System.Action onComplete)
+        {
+            CoreController.Instance.StartCoroutine(WalkTo_Ienumerator(onComplete));
+        }
+
+        private IEnumerator WalkTo_Ienumerator(System.Action onComplete)
+        {
+            //wait for AI to finish the work
+            yield return null;
+            onComplete?.Invoke();
+        }
     }
 }

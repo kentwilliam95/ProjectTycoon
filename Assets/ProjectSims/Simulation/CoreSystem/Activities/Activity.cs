@@ -12,9 +12,11 @@ namespace Simulation
             
         }
 
-        public virtual void DoActivity()
+        public virtual void DoActivity(float dt)
         {
         
         }
+
+        public virtual void Exit() { }
     }   
 }
