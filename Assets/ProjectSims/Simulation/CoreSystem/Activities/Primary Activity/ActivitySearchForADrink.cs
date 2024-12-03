@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Simulation.Items;
+using Simulation.Products;
+using Simulation.Stalls;
 using UnityEngine;
 
 namespace Simulation.BuffSystem
@@ -12,16 +13,19 @@ namespace Simulation.BuffSystem
             None,
             Searching,
             WalkingToThatStall,
+            VisitStall,
             Buying,
             Drinking,
-            Finish
+            Finish,
+            Waiting
         }
-        
+
         private Person _person;
         private float _duration;
-        private Item _itemFromStall;
+        private Product _itemFromStall;
 
         private State _state = State.None;
+
         public ActivitySearchForADrink(Person person)
         {
             _person = person;
@@ -32,18 +36,21 @@ namespace Simulation.BuffSystem
 
         public override void DoActivity(float dt)
         {
-            if (_state == State.None || _state == State.Finish) {return;}
+            if (_state == State.None || _state == State.Finish)
+            {
+                return;
+            }
 
             switch (_state)
             {
                 case State.Searching:
                     HandleSearching(dt);
                     break;
-                
+
                 case State.WalkingToThatStall:
                     HandleWalkingToStall(dt);
                     break;
-                
+
                 case State.Buying:
                     HandleBuyingMenuAtStall(dt);
                     break;
@@ -62,7 +69,7 @@ namespace Simulation.BuffSystem
                 Debug.Log("Search Finish! Walking to that stall!");
                 _state = State.WalkingToThatStall;
                 _duration = 2f;
-            }   
+            }
         }
 
         private void HandleWalkingToStall(float dt)
@@ -70,7 +77,6 @@ namespace Simulation.BuffSystem
             _duration -= dt;
             if (_duration <= 0)
             {
-                Debug.Log("End Walking to stall");
                 _state = State.Buying;
                 _duration = 2f;
             }
@@ -81,29 +87,44 @@ namespace Simulation.BuffSystem
             _duration -= dt;
             if (_duration <= 0)
             {
-                Debug.Log("End Buying!");
-                _state = State.Drinking;
+                _state = State.VisitStall;
                 _duration = 2f;
-
+                
                 var stall = CoreController.Instance.GetStallNearPerson(_person);
-                stall.BuyMenu((item) =>
-                {
-                    _itemFromStall = item;
-                });
-                Debug.Log("Waiting for that menu to be serve!");
+                stall.CustomerVisitStall(_person, Handle_OnWaitingListCalled);
+                Debug.Log("Visit this Stall!");
             }
+        }
+
+        private void Handle_OnWaitingListCalled(Stall stall)
+        {
+            stall.BuyMenu(Handle_StallServeMenu);
+            _state = State.Waiting;
+            Debug.Log("Buying a menu, waiting for that menu to be serve!");
+        }
+
+        private void Handle_StallServeMenu(Stall stall, Product item)
+        {
+            stall.CustomerLeave(_person);
+            _itemFromStall = item;
+            _state = State.Drinking;
+            Debug.Log("Eat that menu!");
         }
 
         private void HandleDrinking(float dt)
         {
-            if (_itemFromStall == null) { return; }
-            
+            if (_itemFromStall == null)
+            {
+                return;
+            }
+
             _duration -= dt;
             if (_duration <= 0)
             {
                 Debug.Log("End Drinking to the next state!");
-                _state = State.Finish;
+                _state = State.Searching;
+                _duration = 2f;
             }
         }
-    }   
+    }
 }

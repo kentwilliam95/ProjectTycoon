@@ -13,7 +13,7 @@ namespace Simulation.BuffSystem
         {
             _person = person;
             
-            buffThirsty = new Buff(person.StatusController, StatusController.Stats.Thirsty,-1 , 0.5f, 99, Buff_OnComplete);
+            buffThirsty = new Buff(person.StatusController, StatusController.Stats.Thirsty,-1 , 0.1f, 99, Buff_OnComplete);
             person.ApplyBuff(buffThirsty);
             Debug.Log("Enter Activity Walking!");
         }

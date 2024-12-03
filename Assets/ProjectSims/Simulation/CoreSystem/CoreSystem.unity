@@ -300,6 +300,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e684b90324ee4b9fb004e58c4f53591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inventoryItems:
+  - {fileID: 11400000, guid: 69e6ee1d78a404153adc6b8f05570ba1, type: 2}
+  - {fileID: 11400000, guid: fd280f8323e83488d910e8abc9710438, type: 2}
+  - {fileID: 11400000, guid: 79de19f10e08c47729b966c1c3fb4edb, type: 2}
+  - {fileID: 11400000, guid: a4a3ee720cc8747ddbdffb30d495d30b, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -21,7 +21,8 @@ namespace Simulation
         private void Start()
         {
             _listPeople = new List<Person>();
-
+            
+            Stall.Initialize();
             Person p = new Person();
             _listPeople.Add(p);
         }

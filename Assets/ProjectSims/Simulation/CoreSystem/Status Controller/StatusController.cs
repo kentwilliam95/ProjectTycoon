@@ -17,7 +17,8 @@ namespace Simulation
             Bladder,
             Social,
             Fun,
-            Thirsty
+            Thirsty,
+            Urgency
         }
 
         private Dictionary<Stats, float> _dictStats;
@@ -34,6 +35,9 @@ namespace Simulation
             _dictStats.Add(Stats.Social, 100);
             _dictStats.Add(Stats.Fun, 100);
             _dictStats.Add(Stats.Thirsty, 100);
+            
+            //100 : high urgency
+            _dictStats.Add(Stats.Urgency, 0); 
         }
 
         public void Add(Stats stats, float value)
