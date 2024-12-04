@@ -18,16 +18,23 @@ namespace Simulation.Inventory
 
         public void Add(Item item, int qty)
         {
-           var boolean = _dictInventory.TryAdd(item, qty);
-           if (!boolean) { Debug.LogError("Add Ingredient Fail!");}
+            var boolean = _dictInventory.TryAdd(item, qty);
+            if (!boolean)
+            {
+                Debug.LogError("Add Ingredient Fail!");
+            }
         }
 
         public bool Get(Item item, int amount)
         {
-            if (!_dictInventory.ContainsKey(item)) { return false; }
+            if (!_dictInventory.ContainsKey(item))
+            {
+                return false;
+            }
+
             if (!CheckItem(item, amount))
             {
-                return false; 
+                return false;
             }
 
             amount = amount > 0 ? -amount : amount;
@@ -37,11 +44,36 @@ namespace Simulation.Inventory
 
         public bool CheckItem(Item item, int amount)
         {
-            if (!_dictInventory.ContainsKey(item)) { return false; }
+            if (!_dictInventory.ContainsKey(item))
+            {
+                return false;
+            }
+
             var stockQty = _dictInventory[item];
-            if (stockQty - amount < 0) { return false; }
+            if (stockQty - amount < 0)
+            {
+                return false;
+            }
 
             return true;
         }
-    }   
+
+        public bool CheckItemForProduct(ProductSO productSo)
+        {
+            var requirement = productSo.Requirements;
+            bool isValid = true;
+            for (int i = 0; i < requirement.Length; i++)
+            {
+                var qty = requirement[i].Qty;
+                var resource = requirement[i].Resource;
+                if (!CheckItem(resource, qty))
+                {
+                    isValid = false;
+                    break;
+                }
+            }
+
+            return isValid;
+        }
+    }
 }

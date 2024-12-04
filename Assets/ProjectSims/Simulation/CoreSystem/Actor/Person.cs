@@ -25,7 +25,7 @@ namespace Simulation
         {
             _statusController = new StatusController();
             _buffCtrl = new BuffController();
-            _activity = new ActivityWalking(this);
+            // _activity = new ActivityWalking(this);
         }
 
         public void ApplyBuff(Buff buff)
@@ -44,6 +44,23 @@ namespace Simulation
             _buffCtrl.Update(dt);
             
             UpdateActivity(dt);
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                CoreController.Instance.Stall.CustomerVisitStall(this, (stall) =>
+                {
+                    var p = stall.Products[0];
+                    stall.BuyMenu(p, (s,p) =>
+                    {
+                        Debug.Log($"Thank you! product:{p.Name}");
+                        s.CustomerLeave(this);
+                    }, (s,p) =>
+                    {
+                        Debug.Log($"Dissapointed!");
+                        s.CustomerLeave(this);
+                    });
+                });
+            }
         }
 
         private void UpdateStatus(float dt) { }

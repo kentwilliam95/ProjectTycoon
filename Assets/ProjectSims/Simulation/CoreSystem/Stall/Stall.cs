@@ -38,34 +38,38 @@ namespace Simulation.Stalls
         private List<DataWaiting> _waitingList = new List<DataWaiting>(16);
 
         [SerializeField] private List<Item> _inventoryItems;
-
+        [field: SerializeField] public List<ProductSO> Products { get; private set; }
+        
+        [TextArea(5,10)]
+        public string _DebugLog;
+        
         public void Initialize()
         {
             _inventory = new InventoryController();
             foreach (var item in _inventoryItems)
             {
-                Debug.Log($"Add Item:{item.Name} 99");
-                _inventory.Add(item, 99);
+                _inventory.Add(item, 999999);
             }
         }
 
         public void CustomerVisitStall(Person person, Action<Stall> onCall)
         {
+            Debug.Log($"Visit Stall! {person}");
             var dataQueue = new DataWaiting() { OnCall = onCall, Person = person, QueueNumber = _waitingList.Count };
             _waitingList.Add(dataQueue);
         }
 
         public void CustomerLeave(Person person)
         {
+            Debug.Log("Customer Leave!");
             var count = _waitingList.Count;
             for (int i = count - 1; i >= 0; i--)
             {
-                if (_waitingList[i].Person != person)
+                if (_waitingList[i].Person == person)
                 {
-                    continue;
+                    _waitingList.RemoveAt(i);
+                    break;
                 }
-
-                _waitingList.RemoveAt(i);
             }
 
             ResetServeState();
@@ -73,11 +77,12 @@ namespace Simulation.Stalls
 
         private void Update()
         {
+            _DebugLog = $"Waiting List Count: {_waitingList.Count}";
             if (_waitingList.Count <= 0)
             {
                 return;
             }
-            
+
             switch (_state)
             {
                 case State.Idle:
@@ -96,10 +101,11 @@ namespace Simulation.Stalls
             {
                 return;
             }
-
+            
+            Debug.Log("Serving!");
+            
             //for now serve the 0 index, later this handle multiple request depends on idle employee
             _serving = _waitingList[0];
-            
             _state = State.CallWaitingList;
         }
 
@@ -115,18 +121,28 @@ namespace Simulation.Stalls
             Debug.Log("Calling!");
         }
 
-        public void BuyMenu(System.Action<Stall, Product> onServeComplete)
+        public void BuyMenu(ProductSO product, System.Action<Stall, Product> onServeComplete, System.Action<Stall, string> onFail)
         {
             Debug.Log("Please wait while your item is being process right now!");
-            _coroutineServe = StartCoroutine(MakeMenuForCustomer(onServeComplete));
+            
+            bool isValid = _inventory.CheckItemForProduct(product);
+            if (isValid)
+            {
+                _coroutineServe = StartCoroutine(MakeMenuForCustomer(product, onServeComplete));   
+            }
+            else
+            {
+                onFail?.Invoke(this, "Sorry we could not advance your order, we don't have enough ingredients.");
+                ResetServeState();
+            }
         }
 
-        private IEnumerator MakeMenuForCustomer(System.Action<Stall, Product> onComplete)
-        {
+        private IEnumerator MakeMenuForCustomer(ProductSO product, System.Action<Stall, Product> onComplete)
+        {            
             yield return new WaitForSeconds(2);
             Debug.Log("Here is your Product sir/mam!");
+            onComplete?.Invoke(this, new Product(_serving.Person, product));
             ResetServeState();
-            onComplete?.Invoke(this, new Product());
         }
 
         private void ResetServeState()

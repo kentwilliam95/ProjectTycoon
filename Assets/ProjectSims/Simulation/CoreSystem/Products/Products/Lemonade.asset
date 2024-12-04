@@ -17,8 +17,11 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: fd280f8323e83488d910e8abc9710438, type: 2}
     Qty: 6
   - Resource: {fileID: 11400000, guid: 54b7973f09b3c46c3a1ad3ac6e3ae89c, type: 2}
-    Qty: 2
+    Qty: 500
   - Resource: {fileID: 11400000, guid: 79de19f10e08c47729b966c1c3fb4edb, type: 2}
     Qty: 2
   - Resource: {fileID: 11400000, guid: 69e6ee1d78a404153adc6b8f05570ba1, type: 2}
     Qty: 1
+  AffectedStats:
+  - Affected: 8
+    Value: 10
