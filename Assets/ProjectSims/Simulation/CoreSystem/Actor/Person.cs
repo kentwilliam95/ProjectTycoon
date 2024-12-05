@@ -20,12 +20,14 @@ namespace Simulation
         public StatusController StatusController => _statusController;
 
         private BuffController _buffCtrl;
-        
-        public Person()
+        public PersonView View { get; private set; }
+
+        public Person(PersonView view)
         {
             _statusController = new StatusController();
             _buffCtrl = new BuffController();
-            // _activity = new ActivityWalking(this);
+
+            View = view;
         }
 
         public void ApplyBuff(Buff buff)
@@ -44,23 +46,6 @@ namespace Simulation
             _buffCtrl.Update(dt);
             
             UpdateActivity(dt);
-
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                CoreController.Instance.Stall.CustomerVisitStall(this, (stall) =>
-                {
-                    var p = stall.Products[0];
-                    stall.BuyMenu(p, (s,p) =>
-                    {
-                        Debug.Log($"Thank you! product:{p.Name}");
-                        s.CustomerLeave(this);
-                    }, (s,p) =>
-                    {
-                        Debug.Log($"Dissapointed!");
-                        s.CustomerLeave(this);
-                    });
-                });
-            }
         }
 
         private void UpdateStatus(float dt) { }

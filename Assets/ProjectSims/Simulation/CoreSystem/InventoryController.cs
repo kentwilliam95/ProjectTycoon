@@ -9,14 +9,14 @@ namespace Simulation.Inventory
 {
     public class InventoryController
     {
-        private Dictionary<Item, int> _dictInventory;
+        private Dictionary<Item, float> _dictInventory;
 
         public InventoryController()
         {
-            _dictInventory = new Dictionary<Item, int>(8);
+            _dictInventory = new Dictionary<Item, float>(8);
         }
 
-        public void Add(Item item, int qty)
+        public void Add(Item item, float qty)
         {
             var boolean = _dictInventory.TryAdd(item, qty);
             if (!boolean)
@@ -25,7 +25,7 @@ namespace Simulation.Inventory
             }
         }
 
-        public bool Get(Item item, int amount)
+        public bool Get(Item item, float amount)
         {
             if (!_dictInventory.ContainsKey(item))
             {
@@ -42,7 +42,7 @@ namespace Simulation.Inventory
             return true;
         }
 
-        public bool CheckItem(Item item, int amount)
+        public bool CheckItem(Item item, float amount)
         {
             if (!_dictInventory.ContainsKey(item))
             {

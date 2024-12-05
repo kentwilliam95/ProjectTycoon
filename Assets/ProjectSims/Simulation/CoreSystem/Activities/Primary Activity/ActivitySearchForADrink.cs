@@ -22,7 +22,8 @@ namespace Simulation.BuffSystem
 
         private Person _person;
         private float _duration;
-        private Product _itemFromStall;
+        private EndProduct _itemFromStall;
+        private Stall _stall;
 
         private State _state = State.None;
 
@@ -31,7 +32,6 @@ namespace Simulation.BuffSystem
             _person = person;
             _duration = 3f;
             _state = State.Searching;
-            Debug.Log("Searching for drink stall.");
         }
 
         public override void DoActivity(float dt)
@@ -79,6 +79,7 @@ namespace Simulation.BuffSystem
             {
                 _state = State.Buying;
                 _duration = 2f;
+                _stall = CoreController.Instance.GetStallNearPerson(_person);
             }
         }
 
@@ -89,34 +90,55 @@ namespace Simulation.BuffSystem
             {
                 _state = State.VisitStall;
                 _duration = 2f;
-
-                var stall = CoreController.Instance.GetStallNearPerson(_person);
-                stall.CustomerVisitStall(_person, Handle_OnWaitingListCalled);
+                
+                _stall.CustomerVisitStall(_person, Handle_OnWaitingListCalled);
                 Debug.Log("Visit this Stall!");
             }
         }
 
         private void Handle_OnWaitingListCalled(Stall stall)
         {
-            var product = stall.Products[Random.Range(0, stall.Products.Count)];
-            stall.BuyMenu(product, Handle_StallServeMenu_OnSuccess, HandleStallMenu_OnFail);
-            _state = State.Waiting;
-            Debug.Log("Buying a menu, waiting for that menu to be serve!");
+            //Todo: add randomness to not make this npc not follow the rule
+            var listProduct = stall.GetProductBaseOnStats(StatusController.Stats.Thirsty);
+            var count = listProduct.Count;
+            bool isGotAMenu = false;
+            for (int i = 0; i < count ; i++)
+            {
+                var ranIndex = Random.Range(0, listProduct.Count);
+                var productSO = listProduct[ranIndex];
+                bool isAvailable = _stall.IsProductAvailable(productSO);
+                if (isAvailable)
+                {
+                    isGotAMenu = true;
+                    _stall.BuyMenu(productSO, Handle_StallServeMenu_OnSuccess, null);
+                    _state = State.Waiting;
+                    Debug.Log("Buying a menu, waiting for that menu to be serve!");
+                    break;
+                }
+            }
+            
+            if (isGotAMenu) { return;}
+            
+            if (_stall.IsProductAvailable(_person.View.MinDrink))
+            {
+                _stall.BuyMenu(_person.View.MinDrink, Handle_StallServeMenu_OnSuccess, null);
+                _state = State.Waiting;
+                Debug.Log("Buying a menu, waiting for that menu to be serve!");
+                return;
+            }
+
+            stall.CustomerLeave(_person);
+            _state = State.Searching;
+            _duration = 2f;
+            Debug.Log("Leaving The Stall no product satisfy me");
         }
 
-        private void Handle_StallServeMenu_OnSuccess(Stall stall, Product item)
+        private void Handle_StallServeMenu_OnSuccess(Stall stall, EndProduct item)
         {
             stall.CustomerLeave(_person);
             _itemFromStall = item;
             _state = State.Drinking;
             Debug.Log("Eat that menu!");
-        }
-
-        private void HandleStallMenu_OnFail(Stall stall, string message)
-        {
-            stall.CustomerLeave(_person);
-            _state = State.Searching;
-            _duration = 2f;
         }
 
         private void HandleDrinking(float dt)
@@ -133,6 +155,11 @@ namespace Simulation.BuffSystem
                 _state = State.Searching;
                 _duration = 2f;
             }
+        }
+
+        private void HandleLeavingStall()
+        {
+            
         }
     }
 }

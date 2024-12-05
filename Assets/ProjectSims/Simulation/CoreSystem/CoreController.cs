@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Simulation.Products;
 using UnityEngine;
 using Simulation.Stalls;
 
@@ -9,10 +10,9 @@ namespace Simulation
     public class CoreController : MonoBehaviour
     {
         public static CoreController Instance { get; private set; }
-        
-        private List<Person> _listPeople;
+        private List<PersonView> _listPeople;
         [field: SerializeField] public Stall Stall { get; private set; }
-
+        [field: SerializeField] private PersonView _personView;
         private void Awake()
         {
             Instance = this;
@@ -20,11 +20,10 @@ namespace Simulation
 
         private void Start()
         {
-            _listPeople = new List<Person>();
-            
+            _listPeople = new List<PersonView>();
             Stall.Initialize();
-            Person p = new Person();
-            _listPeople.Add(p);
+            
+            _listPeople.Add(_personView);
         }
 
         private void Update()
@@ -32,7 +31,7 @@ namespace Simulation
             var dt = Time.deltaTime;
             for (int i = 0; i < _listPeople.Count; i++)
             {
-                _listPeople[i].Update(dt);
+                _listPeople[i].UpdateController(dt);
             }
         }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using Simulation.Inventory;
 using UnityEngine;
 using Simulation.Products;
@@ -13,7 +14,6 @@ namespace Simulation.Stalls
         [System.Serializable]
         public struct DataWaiting
         {
-            public int QueueNumber;
             public Person Person;
             public Action<Stall> OnCall;
 
@@ -38,10 +38,7 @@ namespace Simulation.Stalls
         private List<DataWaiting> _waitingList = new List<DataWaiting>(16);
 
         [SerializeField] private List<Item> _inventoryItems;
-        [field: SerializeField] public List<ProductSO> Products { get; private set; }
-        
-        [TextArea(5,10)]
-        public string _DebugLog;
+        [SerializeField] private Catalog _catalog;
         
         public void Initialize()
         {
@@ -55,7 +52,7 @@ namespace Simulation.Stalls
         public void CustomerVisitStall(Person person, Action<Stall> onCall)
         {
             Debug.Log($"Visit Stall! {person}");
-            var dataQueue = new DataWaiting() { OnCall = onCall, Person = person, QueueNumber = _waitingList.Count };
+            var dataQueue = new DataWaiting() { OnCall = onCall, Person = person};
             _waitingList.Add(dataQueue);
         }
 
@@ -74,10 +71,9 @@ namespace Simulation.Stalls
 
             ResetServeState();
         }
-
+        
         private void Update()
         {
-            _DebugLog = $"Waiting List Count: {_waitingList.Count}";
             if (_waitingList.Count <= 0)
             {
                 return;
@@ -104,7 +100,7 @@ namespace Simulation.Stalls
             
             Debug.Log("Serving!");
             
-            //for now serve the 0 index, later this handle multiple request depends on idle employee
+            //Todo: for now serve the 0 index, later this handle multiple request depends on idle employee
             _serving = _waitingList[0];
             _state = State.CallWaitingList;
         }
@@ -118,10 +114,9 @@ namespace Simulation.Stalls
 
             _serving.OnCall?.Invoke(this);
             _state = State.Serving;
-            Debug.Log("Calling!");
         }
 
-        public void BuyMenu(ProductSO product, System.Action<Stall, Product> onServeComplete, System.Action<Stall, string> onFail)
+        public void BuyMenu(ProductSO product, System.Action<Stall, EndProduct> onServeComplete, System.Action<Stall, string> onFail)
         {
             Debug.Log("Please wait while your item is being process right now!");
             
@@ -137,11 +132,29 @@ namespace Simulation.Stalls
             }
         }
 
-        private IEnumerator MakeMenuForCustomer(ProductSO product, System.Action<Stall, Product> onComplete)
+        public List<ProductSO> GetProductBaseOnStats(StatusController.Stats stat)
+        {
+            //Todo: instead creating list every request, try pooling 
+            var customList =  new List<ProductSO>();
+            for (int i = 0; i < _catalog.Entries.Count; i++)
+            {
+                var p = _catalog.Entries[i].Product;
+                if (!p.IsContainStat(stat)) { continue; }
+                customList.Add(p);
+            }
+            return customList;
+        }
+
+        public bool IsProductAvailable(ProductSO product)
+        {
+            return _inventory.CheckItemForProduct(product);
+        }
+
+        private IEnumerator MakeMenuForCustomer(ProductSO product, System.Action<Stall, EndProduct> onComplete)
         {            
             yield return new WaitForSeconds(2);
             Debug.Log("Here is your Product sir/mam!");
-            onComplete?.Invoke(this, new Product(_serving.Person, product));
+            onComplete?.Invoke(this, new EndProduct(_serving.Person, product));
             ResetServeState();
         }
 

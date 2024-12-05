@@ -10,18 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb56b2171e774414f858e8ca846ed606, type: 3}
-  m_Name: Lemonade
+  m_Name: Gallon of Water
   m_EditorClassIdentifier: 
-  Name: Lemonade
+  Name: Gallon of Water
+  Lvl: 0
   Requirements:
-  - Resource: {fileID: 11400000, guid: fd280f8323e83488d910e8abc9710438, type: 2}
-    Qty: 6
   - Resource: {fileID: 11400000, guid: 54b7973f09b3c46c3a1ad3ac6e3ae89c, type: 2}
-    Qty: 500
-  - Resource: {fileID: 11400000, guid: 79de19f10e08c47729b966c1c3fb4edb, type: 2}
-    Qty: 2
-  - Resource: {fileID: 11400000, guid: 69e6ee1d78a404153adc6b8f05570ba1, type: 2}
+    Qty: 3800
+  - Resource: {fileID: 11400000, guid: 6ebde2497fe6b439f9b66585ab5f822a, type: 2}
     Qty: 1
-  AffectedStats:
-  - Affected: 8
-    Value: 10
+  AffectedStats: []
