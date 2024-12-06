@@ -64,6 +64,10 @@ namespace Simulation
                 case ActivityType.SearchADrink:
                     next = new ActivitySearchForADrink(this);
                     break;
+                
+                case ActivityType.Walking:
+                    next = new ActivityWalking(this);
+                    break;
             }
 
             if (_activity != null)
@@ -74,15 +78,34 @@ namespace Simulation
             _activity = next;
         }
 
-        public void StartWalkingTo(System.Action onComplete)
+        private Coroutine _coroutineWalk;
+        public void StartWalkingTo(Vector3 destination, System.Action onComplete)
         {
-            CoreController.Instance.StartCoroutine(WalkTo_Ienumerator(onComplete));
+            View.Agent.SetDestination(destination);
+            if (_coroutineWalk != null)
+            {
+                CoreController.Instance.StopCoroutine(_coroutineWalk);
+            }
+
+            _coroutineWalk =  CoreController.Instance.StartCoroutine(WalkTo_Ienumerator(onComplete));
+        }
+
+        public void StopWalking()
+        {
+            if (_coroutineWalk != null)
+            {
+                CoreController.Instance.StopCoroutine(_coroutineWalk);
+            }
         }
 
         private IEnumerator WalkTo_Ienumerator(System.Action onComplete)
         {
             //wait for AI to finish the work
             yield return null;
+            while (View.Agent.remainingDistance > 0.1f)
+            {
+                yield return null;
+            }
             onComplete?.Invoke();
         }
     }
