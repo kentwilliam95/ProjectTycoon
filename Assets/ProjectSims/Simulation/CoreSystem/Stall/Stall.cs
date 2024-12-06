@@ -40,6 +40,8 @@ namespace Simulation.Stalls
         [SerializeField] private List<Item> _inventoryItems;
         [SerializeField] private Catalog _catalog;
         
+        [field: SerializeField] public Transform OrderPoint { get; private set; }
+
         public void Initialize()
         {
             _inventory = new InventoryController();
