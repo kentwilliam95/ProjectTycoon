@@ -12,7 +12,7 @@ NavMeshProjectSettings:
   - name: Jump
     cost: 20
   - name: Grass
-    cost: 10000
+    cost: 20
   - name: Lake
     cost: 50
   - name: 
