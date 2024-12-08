@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Simulation;
 using Simulation.BuffSystem;
+using UnityEngine.AI;
 
 namespace Simulation
 {
@@ -21,6 +22,7 @@ namespace Simulation
 
         private BuffController _buffCtrl;
         public PersonView View { get; private set; }
+        public NavMeshAgent Agent => View.Agent;
 
         public Person(PersonView view)
         {
@@ -76,37 +78,6 @@ namespace Simulation
             }
 
             _activity = next;
-        }
-
-        private Coroutine _coroutineWalk;
-        public void StartWalkingTo(Vector3 destination, System.Action onComplete)
-        {
-            View.Agent.SetDestination(destination);
-            if (_coroutineWalk != null)
-            {
-                CoreController.Instance.StopCoroutine(_coroutineWalk);
-            }
-
-            _coroutineWalk =  CoreController.Instance.StartCoroutine(WalkTo_Ienumerator(onComplete));
-        }
-
-        public void StopWalking()
-        {
-            if (_coroutineWalk != null)
-            {
-                CoreController.Instance.StopCoroutine(_coroutineWalk);
-            }
-        }
-
-        private IEnumerator WalkTo_Ienumerator(System.Action onComplete)
-        {
-            //wait for AI to finish the work
-            yield return null;
-            while (View.Agent.remainingDistance > 0.1f)
-            {
-                yield return null;
-            }
-            onComplete?.Invoke();
         }
     }
 }
