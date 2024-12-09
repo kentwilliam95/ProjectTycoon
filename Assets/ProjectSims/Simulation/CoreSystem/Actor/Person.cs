@@ -16,6 +16,9 @@ namespace Simulation
     
     public class Person
     {
+        public const float WALKSPEED = 1.5f;
+        public const float RUNSPEED = 2f;
+        
         private Activity _activity;
         private StatusController _statusController;
         public StatusController StatusController => _statusController;
@@ -78,6 +81,38 @@ namespace Simulation
             }
 
             _activity = next;
+        }
+        
+        private Coroutine _coroutineWalk;
+        public void StartWalkingTo(Vector3 destination, System.Action onComplete)
+        {
+            Agent.SetDestination(destination);
+            Agent.speed = WALKSPEED;
+            if (_coroutineWalk != null)
+            {
+                CoreController.Instance.StopCoroutine(_coroutineWalk);
+            }
+
+            _coroutineWalk =  CoreController.Instance.StartCoroutine(WalkTo_IEnumerator(onComplete));
+        }
+
+        public void StopWalking()
+        {
+            if (_coroutineWalk != null)
+            {
+                CoreController.Instance.StopCoroutine(_coroutineWalk);
+            }
+        }
+
+        private IEnumerator WalkTo_IEnumerator(System.Action onComplete)
+        {
+            //wait for AI to finish the work
+            yield return null;
+            while (Agent.remainingDistance > 0.1f)
+            {
+                yield return null;
+            }
+            onComplete?.Invoke();
         }
     }
 }

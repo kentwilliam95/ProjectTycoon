@@ -13,6 +13,7 @@ namespace Simulation.BuffSystem
             None,
             Searching,
             WalkingToThatStall,
+            WalkingToThatStallInProgress,
             VisitStall,
             Buying,
             Drinking,
@@ -69,18 +70,18 @@ namespace Simulation.BuffSystem
                 Debug.Log("Search Finish! Walking to that stall!");
                 _state = State.WalkingToThatStall;
                 _duration = 2f;
+                _stall = CoreController.Instance.GetStallNearPerson(_person);
             }
         }
-
+        
         private void HandleWalkingToStall(float dt)
         {
-            _duration -= dt;
-            if (_duration <= 0)
+            _state = State.WalkingToThatStallInProgress;
+            _person.StartWalkingTo(_stall.OrderPoint.position, () =>
             {
                 _state = State.Buying;
                 _duration = 2f;
-                _stall = CoreController.Instance.GetStallNearPerson(_person);
-            }
+            });
         }
 
         private void HandleBuyingMenuAtStall(float dt)

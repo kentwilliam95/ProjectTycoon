@@ -12,7 +12,7 @@ namespace Simulation
         public static CoreController Instance { get; private set; }
         private List<PersonView> _listPeople;
         [field: SerializeField] public Stall Stall { get; private set; }
-        [field: SerializeField] private PersonView _personView;
+        [field: SerializeField] private PersonView[] _personView;
         private void Awake()
         {
             Instance = this;
@@ -23,7 +23,7 @@ namespace Simulation
             _listPeople = new List<PersonView>();
             Stall.Initialize();
             
-            _listPeople.Add(_personView);
+            _listPeople.AddRange(_personView);
         }
 
         private void Update()

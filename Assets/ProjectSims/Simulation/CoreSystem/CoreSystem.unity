@@ -1498,7 +1498,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040743960}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
@@ -1671,7 +1671,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Stall>k__BackingField: {fileID: 1858147373}
-  _personView: {fileID: 990657822}
+  _personView:
+  - {fileID: 990657822}
+  - {fileID: 602546605}
+  - {fileID: 453034468}
+  - {fileID: 2115211345}
+  - {fileID: 789307326}
+  - {fileID: 704482551}
+  - {fileID: 2031713839}
 --- !u!1 &1299376679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,7 +2329,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 79de19f10e08c47729b966c1c3fb4edb, type: 2}
   - {fileID: 11400000, guid: 54b7973f09b3c46c3a1ad3ac6e3ae89c, type: 2}
   _catalog: {fileID: 11400000, guid: d8b1d95e73b144691b60ba019771c65e, type: 2}
-  <OrderPoint>k__BackingField: {fileID: 0}
+  <OrderPoint>k__BackingField: {fileID: 1989246948}
 --- !u!1 &1974976975
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,7 +2372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1989246948}
   m_Layer: 0
-  m_Name: Standing Point
+  m_Name: Order Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
