@@ -23,6 +23,7 @@ namespace Simulation
             _listPeople = new List<PersonView>();
             Stall.Initialize();
             
+            _personView = GetComponentsInChildren<PersonView>();
             _listPeople.AddRange(_personView);
         }
 

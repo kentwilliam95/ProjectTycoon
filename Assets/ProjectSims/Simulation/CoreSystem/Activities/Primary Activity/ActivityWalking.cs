@@ -15,14 +15,14 @@ namespace Simulation.BuffSystem
         {
             _person = person;
             var target = GroundArea.Instance.GetRandomPoint();
-            _person.StartWalkingTo(target, WalkOnComplete);
-            buffThirsty = new Buff(person.StatusController, StatusController.Stats.Thirsty,-1 , 0.25f, 99, Buff_OnComplete);
+            _person.StartMoveTo(target, Person.WALKSPEED, WalkOnComplete);
+            buffThirsty = new Buff(person.StatusController, StatusController.Stats.Thirsty,-Random.Range(0.25f, 1f) , 0.25f, 99, Buff_OnComplete);
             person.ApplyBuff(buffThirsty);
         }
 
         private void WalkOnComplete()
         {
-            _person.StartWalkingTo(GroundArea.Instance.GetRandomPoint(), WalkOnComplete);
+            _person.StartMoveTo(GroundArea.Instance.GetRandomPoint(),Person.WALKSPEED, WalkOnComplete);
         }
 
         public override void DoActivity(float dt)

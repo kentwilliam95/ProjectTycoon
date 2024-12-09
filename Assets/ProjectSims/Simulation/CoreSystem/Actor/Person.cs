@@ -84,10 +84,12 @@ namespace Simulation
         }
         
         private Coroutine _coroutineWalk;
-        public void StartWalkingTo(Vector3 destination, System.Action onComplete)
+        public void StartMoveTo(Vector3 destination, float speed, System.Action onComplete)
         {
+            StopWalking();
             Agent.SetDestination(destination);
-            Agent.speed = WALKSPEED;
+            Agent.speed = speed;
+            
             if (_coroutineWalk != null)
             {
                 CoreController.Instance.StopCoroutine(_coroutineWalk);

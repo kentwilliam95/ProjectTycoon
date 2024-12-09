@@ -15,6 +15,7 @@ namespace Simulation.Stalls
         public struct DataWaiting
         {
             public Person Person;
+            public bool IsArrive;
             public Action<Stall> OnCall;
 
             public void Reset()
@@ -28,6 +29,7 @@ namespace Simulation.Stalls
         {
             Idle,
             CallWaitingList,
+            WaitingForCustomer,
             Serving
         }
 
@@ -39,7 +41,7 @@ namespace Simulation.Stalls
 
         [SerializeField] private List<Item> _inventoryItems;
         [SerializeField] private Catalog _catalog;
-        
+
         [field: SerializeField] public Transform OrderPoint { get; private set; }
 
         public void Initialize()
@@ -54,7 +56,7 @@ namespace Simulation.Stalls
         public void CustomerVisitStall(Person person, Action<Stall> onCall)
         {
             Debug.Log($"Visit Stall! {person}");
-            var dataQueue = new DataWaiting() { OnCall = onCall, Person = person};
+            var dataQueue = new DataWaiting() { OnCall = onCall, Person = person };
             _waitingList.Add(dataQueue);
         }
 
@@ -73,7 +75,7 @@ namespace Simulation.Stalls
 
             ResetServeState();
         }
-        
+
         private void Update()
         {
             if (_waitingList.Count <= 0)
@@ -99,9 +101,9 @@ namespace Simulation.Stalls
             {
                 return;
             }
-            
+
             Debug.Log("Serving!");
-            
+
             //Todo: for now serve the 0 index, later this handle multiple request depends on idle employee
             _serving = _waitingList[0];
             _state = State.CallWaitingList;
@@ -114,18 +116,32 @@ namespace Simulation.Stalls
                 return;
             }
 
-            _serving.OnCall?.Invoke(this);
-            _state = State.Serving;
+            var count = _waitingList.Count;
+            for (int i = 0; i < count; i++)
+            {
+                var pos = OrderPoint.position - i * OrderPoint.forward;
+                var speed = Person.WALKSPEED * 2;
+                Action onArriveAtOrderPoint = i == 0
+                    ? () =>
+                    {
+                        _serving.OnCall?.Invoke(this);
+                        _state = State.Serving;
+                    }
+                    : null;
+
+                _waitingList[i].Person.StartMoveTo(pos, speed, onArriveAtOrderPoint);
+            }
+            
+            _state = State.WaitingForCustomer;
         }
 
-        public void BuyMenu(ProductSO product, System.Action<Stall, EndProduct> onServeComplete, System.Action<Stall, string> onFail)
+        public void BuyMenu(ProductSO product, Action<Stall, EndProduct> onServeComplete, Action<Stall, string> onFail)
         {
-            Debug.Log("Please wait while your item is being process right now!");
-            
+            _state = State.Serving;
             bool isValid = _inventory.CheckItemForProduct(product);
             if (isValid)
             {
-                _coroutineServe = StartCoroutine(MakeMenuForCustomer(product, onServeComplete));   
+                _coroutineServe = StartCoroutine(MakeMenuForCustomer(product, onServeComplete));
             }
             else
             {
@@ -137,13 +153,18 @@ namespace Simulation.Stalls
         public List<ProductSO> GetProductBaseOnStats(StatusController.Stats stat)
         {
             //Todo: instead creating list every request, try pooling 
-            var customList =  new List<ProductSO>();
+            var customList = new List<ProductSO>();
             for (int i = 0; i < _catalog.Entries.Count; i++)
             {
                 var p = _catalog.Entries[i].Product;
-                if (!p.IsContainStat(stat)) { continue; }
+                if (!p.IsContainStat(stat))
+                {
+                    continue;
+                }
+
                 customList.Add(p);
             }
+
             return customList;
         }
 
@@ -153,9 +174,9 @@ namespace Simulation.Stalls
         }
 
         private IEnumerator MakeMenuForCustomer(ProductSO product, System.Action<Stall, EndProduct> onComplete)
-        {            
+        {
+            //Todo: this is not fixed 2 seconds, it depends on stall equipment and worker condition
             yield return new WaitForSeconds(2);
-            Debug.Log("Here is your Product sir/mam!");
             onComplete?.Invoke(this, new EndProduct(_serving.Person, product));
             ResetServeState();
         }

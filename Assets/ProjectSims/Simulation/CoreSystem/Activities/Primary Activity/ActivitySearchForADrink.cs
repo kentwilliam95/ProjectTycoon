@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Simulation.Products;
 using Simulation.Stalls;
 using UnityEngine;
@@ -14,10 +12,6 @@ namespace Simulation.BuffSystem
             Searching,
             WalkingToThatStall,
             WalkingToThatStallInProgress,
-            VisitStall,
-            Buying,
-            Drinking,
-            Finish,
             Waiting
         }
 
@@ -37,7 +31,7 @@ namespace Simulation.BuffSystem
 
         public override void DoActivity(float dt)
         {
-            if (_state == State.None || _state == State.Finish)
+            if (_state == State.None)
             {
                 return;
             }
@@ -50,14 +44,6 @@ namespace Simulation.BuffSystem
 
                 case State.WalkingToThatStall:
                     HandleWalkingToStall(dt);
-                    break;
-
-                case State.Buying:
-                    HandleBuyingMenuAtStall(dt);
-                    break;
-
-                case State.Drinking:
-                    HandleDrinking(dt);
                     break;
             }
         }
@@ -77,24 +63,7 @@ namespace Simulation.BuffSystem
         private void HandleWalkingToStall(float dt)
         {
             _state = State.WalkingToThatStallInProgress;
-            _person.StartWalkingTo(_stall.OrderPoint.position, () =>
-            {
-                _state = State.Buying;
-                _duration = 2f;
-            });
-        }
-
-        private void HandleBuyingMenuAtStall(float dt)
-        {
-            _duration -= dt;
-            if (_duration <= 0)
-            {
-                _state = State.VisitStall;
-                _duration = 2f;
-                
-                _stall.CustomerVisitStall(_person, Handle_OnWaitingListCalled);
-                Debug.Log("Visit this Stall!");
-            }
+            _stall.CustomerVisitStall(_person, Handle_OnWaitingListCalled);
         }
 
         private void Handle_OnWaitingListCalled(Stall stall)
@@ -138,29 +107,9 @@ namespace Simulation.BuffSystem
         {
             stall.CustomerLeave(_person);
             _itemFromStall = item;
-            _state = State.Drinking;
+            item.Use(_person);
+            _person.ChangeActivity(ActivityType.Walking);
             Debug.Log("Eat that menu!");
-        }
-
-        private void HandleDrinking(float dt)
-        {
-            if (_itemFromStall == null)
-            {
-                return;
-            }
-
-            _duration -= dt;
-            if (_duration <= 0)
-            {
-                Debug.Log("End Drinking to the next state!");
-                _state = State.Searching;
-                _duration = 2f;
-            }
-        }
-
-        private void HandleLeavingStall()
-        {
-            
         }
     }
 }

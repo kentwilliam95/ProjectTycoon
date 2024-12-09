@@ -43,7 +43,6 @@ namespace Simulation.BuffSystem
             if (_tickCount <= 0)
             {
                 _statusController.Add(_affected, _dmg);
-                Debug.Log($"{_affected.ToString()} : { _statusController.GetStat(_affected)}");
                 _tickCount = _tick;
             }
 

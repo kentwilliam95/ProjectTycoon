@@ -25,4 +25,4 @@ MonoBehaviour:
     Qty: 1
   AffectedStats:
   - Affected: 8
-    Value: 10
+    Value: 15
