@@ -84,10 +84,12 @@ namespace Simulation
         }
         
         private Coroutine _coroutineWalk;
+        private NavMeshPath path = new NavMeshPath();
         public void StartMoveTo(Vector3 destination, float speed, System.Action onComplete)
         {
             StopWalking();
-            Agent.SetDestination(destination);
+            NavMesh.CalculatePath(View.transform.position, destination, NavMesh.AllAreas, path);
+            Agent.SetPath(path);
             Agent.speed = speed;
             
             if (_coroutineWalk != null)
