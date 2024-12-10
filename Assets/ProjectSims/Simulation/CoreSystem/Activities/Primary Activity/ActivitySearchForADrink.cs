@@ -53,7 +53,6 @@ namespace Simulation.BuffSystem
             _duration -= dt;
             if (_duration <= 0)
             {
-                Debug.Log("Search Finish! Walking to that stall!");
                 _state = State.WalkingToThatStall;
                 _duration = 2f;
                 _stall = CoreController.Instance.GetStallNearPerson(_person);
@@ -82,7 +81,6 @@ namespace Simulation.BuffSystem
                     isGotAMenu = true;
                     _stall.BuyMenu(productSO, Handle_StallServeMenu_OnSuccess, null);
                     _state = State.Waiting;
-                    Debug.Log("Buying a menu, waiting for that menu to be serve!");
                     break;
                 }
             }
@@ -93,14 +91,12 @@ namespace Simulation.BuffSystem
             {
                 _stall.BuyMenu(_person.View.MinDrink, Handle_StallServeMenu_OnSuccess, null);
                 _state = State.Waiting;
-                Debug.Log("Buying a menu, waiting for that menu to be serve!");
                 return;
             }
 
             stall.CustomerLeave(_person);
             _state = State.Searching;
             _duration = 2f;
-            Debug.Log("Leaving The Stall no product satisfy me");
         }
 
         private void Handle_StallServeMenu_OnSuccess(Stall stall, EndProduct item)
@@ -109,7 +105,6 @@ namespace Simulation.BuffSystem
             _itemFromStall = item;
             item.Use(_person);
             _person.ChangeActivity(ActivityType.Walking);
-            Debug.Log("Eat that menu!");
         }
     }
 }

@@ -102,8 +102,6 @@ namespace Simulation.Stalls
                 return;
             }
 
-            Debug.Log("Serving!");
-
             //Todo: for now serve the 0 index, later this handle multiple request depends on idle employee
             _serving = _waitingList[0];
             _state = State.CallWaitingList;
