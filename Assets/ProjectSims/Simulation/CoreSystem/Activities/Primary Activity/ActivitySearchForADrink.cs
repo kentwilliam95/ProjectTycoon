@@ -94,16 +94,19 @@ namespace Simulation.BuffSystem
                 return;
             }
 
-            stall.CustomerLeave(_person);
-            _state = State.Searching;
-            _duration = 2f;
+            BackToWalking();
         }
 
         private void Handle_StallServeMenu_OnSuccess(Stall stall, EndProduct item)
         {
-            stall.CustomerLeave(_person);
             _itemFromStall = item;
             item.Use(_person);
+            BackToWalking();
+        }
+
+        private void BackToWalking()
+        {
+            _stall.CustomerLeave(_person);
             _person.ChangeActivity(ActivityType.Walking);
         }
     }

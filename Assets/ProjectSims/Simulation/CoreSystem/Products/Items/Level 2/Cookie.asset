@@ -23,4 +23,10 @@ MonoBehaviour:
     Qty: 2
   - Resource: {fileID: 11400000, guid: 7ee2a094551f24854b6d02754e3e07ca, type: 2}
     Qty: 3
-  AffectedStats: []
+  AffectedStats:
+  - Affected: 1
+    Value: 10
+  ToolsRequirements:
+  - {fileID: 11400000, guid: 0b30aa1f1fa2c41d1adc0a97d7fb46d1, type: 2}
+  - {fileID: 11400000, guid: 139543e2e0cf24f3facfa6212a26e60b, type: 2}
+  - {fileID: 11400000, guid: c51ada6617cb14754880ae9188a0799c, type: 2}

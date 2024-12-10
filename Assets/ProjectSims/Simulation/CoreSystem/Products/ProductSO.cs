@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Mono.Cecil;
 using Simulation.Inventory;
-using UnityEngine;  
+using UnityEngine;
 
 namespace Simulation.Products
 {
@@ -15,24 +15,26 @@ namespace Simulation.Products
             public Item Resource;
             public float Qty;
         }
-        
+
         [System.Serializable]
         public struct AffectedStatsDetail
         {
             public StatusController.Stats Affected;
             public int Value;
         }
-        
+
         public Requirement[] Requirements;
         public AffectedStatsDetail[] AffectedStats;
-        
-        public void MakeProduct(InventoryController inventory, int howMany)
+        public ToolSO[] ToolsRequirements;
+
+        public bool MakeProduct(InventoryController inventory, int howMany)
         {
             bool isValid = inventory.CheckItemForProduct(this);
-            if (!isValid)
+            bool isToolValid = inventory.CheckTools(this);
+            if (!isValid || !isToolValid)
             {
                 Debug.Log("[Product] not enough resource to make this product!");
-                return;
+                return isValid;
             }
 
             for (int i = 0; i < Requirements.Length; i++)
@@ -40,13 +42,15 @@ namespace Simulation.Products
                 var req = Requirements[i];
                 inventory.Get(req.Resource, req.Qty);
             }
-            
+
+            inventory.UseTools(this);
             inventory.Add(this, 1);
+            return true;
         }
 
         public void ConvertDown(InventoryController inventory)
         {
-            if (!inventory.CheckItem(this, 1))
+            if (!inventory.CheckItemQty(this, 1))
             {
                 Debug.Log("[Product] not enough resource to convert to lower level");
                 return;
@@ -58,7 +62,7 @@ namespace Simulation.Products
                 inventory.Add(req.Resource, req.Qty);
             }
         }
-        
+
         public bool IsContainStat(StatusController.Stats stat)
         {
             bool isValid = false;
@@ -89,23 +93,27 @@ namespace Simulation.Products
             }
         }
     }
-    
+
     public class EndProduct
     {
         private ProductSO _productSo;
 
         public string Name => _productSo.Name;
-        
-        public EndProduct(Person person,ProductSO productSo)
+
+        public EndProduct(Person person, ProductSO productSo)
         {
             _productSo = productSo;
         }
 
         public void Use(Person _person)
         {
-            if (_person == null) { return; }
+            if (_person == null)
+            {
+                return;
+            }
+
             Debug.Log($"Use Product: {_productSo.Name}");
-            
+
             foreach (var affected in _productSo.AffectedStats)
             {
                 _person.StatusController.Add(affected.Affected, affected.Value);

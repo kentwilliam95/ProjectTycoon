@@ -26,3 +26,6 @@ MonoBehaviour:
   AffectedStats:
   - Affected: 8
     Value: 15
+  ToolsRequirements:
+  - {fileID: 11400000, guid: 08c186a10e537482ab117bcac32d604e, type: 2}
+  - {fileID: 11400000, guid: 4b2a82946e3fe4e9cb16d49ce2c012b5, type: 2}

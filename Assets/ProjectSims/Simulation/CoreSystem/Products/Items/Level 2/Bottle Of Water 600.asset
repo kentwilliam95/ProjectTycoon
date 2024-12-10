@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb56b2171e774414f858e8ca846ed606, type: 3}
   m_Name: Bottle Of Water 600
   m_EditorClassIdentifier: 
-  Name: Bottle Of Water
+  Name: Bottle Of Water 600
   Lvl: 0
   Requirements:
   - Resource: {fileID: 11400000, guid: 54b7973f09b3c46c3a1ad3ac6e3ae89c, type: 2}
@@ -22,3 +22,5 @@ MonoBehaviour:
   AffectedStats:
   - Affected: 8
     Value: 7
+  ToolsRequirements:
+  - {fileID: 11400000, guid: d985760b17cdc43e3961ec01ff031961, type: 2}

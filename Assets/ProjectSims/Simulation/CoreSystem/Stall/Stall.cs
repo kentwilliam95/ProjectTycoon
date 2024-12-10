@@ -136,7 +136,7 @@ namespace Simulation.Stalls
         public void BuyMenu(ProductSO product, Action<Stall, EndProduct> onServeComplete, Action<Stall, string> onFail)
         {
             _state = State.Serving;
-            bool isValid = _inventory.CheckItemForProduct(product);
+            bool isValid = product.MakeProduct(_inventory, 1);
             if (isValid)
             {
                 _coroutineServe = StartCoroutine(MakeMenuForCustomer(product, onServeComplete));

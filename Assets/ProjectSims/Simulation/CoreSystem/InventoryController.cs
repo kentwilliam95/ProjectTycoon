@@ -9,19 +9,20 @@ namespace Simulation.Inventory
 {
     public class InventoryController
     {
-        private Dictionary<Item, float> _dictInventory;
-
-        public InventoryController()
-        {
-            _dictInventory = new Dictionary<Item, float>(8);
-        }
+        private Dictionary<Item, float> _dictInventory = new Dictionary<Item, float>(8);
 
         public void Add(Item item, float qty)
         {
-            var boolean = _dictInventory.TryAdd(item, qty);
-            if (!boolean)
+            bool isContain = _dictInventory.ContainsKey(item);
+            if (!isContain)
             {
-                Debug.LogError("Add Ingredient Fail!");
+                Debug.Log("Add New Item!");
+                _dictInventory.Add(item, qty);
+            }
+            else
+            {
+                Debug.Log("Modify Item quantity!");
+                _dictInventory[item] += qty;
             }
         }
 
@@ -32,7 +33,7 @@ namespace Simulation.Inventory
                 return false;
             }
 
-            if (!CheckItem(item, amount))
+            if (!CheckItemQty(item, amount))
             {
                 return false;
             }
@@ -42,7 +43,25 @@ namespace Simulation.Inventory
             return true;
         }
 
-        public bool CheckItem(Item item, float amount)
+        public void UseTools(ProductSO product)
+        {
+            var tools = product.ToolsRequirements;
+            for (int i = 0; i < tools.Length; i++)
+            {
+                bool isAvailable = _dictInventory.TryGetValue(tools[i], out float value);
+                if (isAvailable)
+                {
+                    value -= tools[i].DegradeValue;
+                    _dictInventory[tools[i]] = value;
+                }
+                else
+                {
+                    Debug.Log("Not enough tools");
+                }
+            }
+        }
+
+        public bool CheckItemQty(Item item, float amount)
         {
             if (!_dictInventory.ContainsKey(item))
             {
@@ -58,6 +77,22 @@ namespace Simulation.Inventory
             return true;
         }
 
+        public bool CheckTools(ProductSO product)
+        {
+            var tools = product.ToolsRequirements;
+            bool isValid = true;
+            for (int i = 0; i < tools.Length; i++)
+            {
+                if (!_dictInventory.ContainsKey(tools[i]))
+                {
+                    isValid = false;
+                    break;
+                }
+            }
+
+            return isValid;
+        }
+
         public bool CheckItemForProduct(ProductSO productSo)
         {
             var requirement = productSo.Requirements;
@@ -66,7 +101,7 @@ namespace Simulation.Inventory
             {
                 var qty = requirement[i].Qty;
                 var resource = requirement[i].Resource;
-                if (!CheckItem(resource, qty))
+                if (!CheckItemQty(resource, qty))
                 {
                     isValid = false;
                     break;

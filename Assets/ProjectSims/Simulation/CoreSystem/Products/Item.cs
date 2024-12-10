@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Simulation.Products
 {
     [CanEditMultipleObjects]
-    [CreateAssetMenu(menuName = "Simulation/Resources")]
+    [CreateAssetMenu(menuName = "Simulation/Item/Item")]
     public class Item: ScriptableObject
     {
         public enum Level
