@@ -55,14 +55,14 @@ namespace Simulation.Stalls
 
         public void CustomerVisitStall(Person person, Action<Stall> onCall)
         {
-            Debug.Log($"Visit Stall! {person}");
+            // Debug.Log($"Visit Stall! {person}");
             var dataQueue = new DataWaiting() { OnCall = onCall, Person = person };
             _waitingList.Add(dataQueue);
         }
 
         public void CustomerLeave(Person person)
         {
-            Debug.Log("Customer Leave!");
+            // Debug.Log("Customer Leave!");
             var count = _waitingList.Count;
             for (int i = count - 1; i >= 0; i--)
             {
