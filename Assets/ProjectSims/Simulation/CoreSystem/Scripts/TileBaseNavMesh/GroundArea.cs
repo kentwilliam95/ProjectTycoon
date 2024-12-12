@@ -27,21 +27,6 @@ namespace ProjectSims.Simulation.CoreSystem
             Instance = this;
         }
 
-        private void Start()
-        {
-            // tempGroundbox = new GroundBox[_generateSize.x * _generateSize.y];
-
-            // StartCoroutine(SpawnGround());
-
-            // StartCoroutine(DelayPerFrame(1, () =>
-            // {
-            //     for (int i = 0; i < tempGroundbox.Length; i++)
-            //     {
-            //         tempGroundbox[i].GenerateNavmeshLinks();
-            //     }
-            // }));
-        }
-
         public Vector3 GetRandomPoint()
         {
             float x = Random.Range(-_data.Area.x, _data.Area.x);
@@ -114,40 +99,9 @@ namespace ProjectSims.Simulation.CoreSystem
                 box.transform.localPosition = grounds[i].LocalPosition;
                 box.SetIndex(grounds[i].IndexV2);
             }
-            
-            // for (int i = 0; i < _data.Area.y; i++)
-            // {
-            //     for (int j = 0; j < _data.Area.x; j++)
-            //     {
-            //         var box = Instantiate(_grassBoxTemplate, transform);
-            //         box.transform.position = startPos;
-            //         startPos.x += 1f;
-            //
-            //         box.SetIndex(new Vector2Int(j, i));
-            //         _data.ChangeGroundAtIndex(box);
-            //     }
-            //
-            //     startPos.x = 0;
-            //     startPos.z -= 1f;
-            // }
-            
-            // for (int i = 0; i < _data.Area.y; i++)
-            // {
-            //     for (int j = 0; j < _data.Area.x; j++)
-            //     {
-            //         var box = Instantiate(_grassBoxTemplate, transform);
-            //         box.transform.position = startPos;
-            //         startPos.x += 1f;
-            //
-            //         box.SetIndex(new Vector2Int(j, i));
-            //     }
-            //
-            //     startPos.x = 0;
-            //     startPos.z -= 1f;
-            // }
         }
-#if UNITY_EDITOR
-        public void SwapToPavementBox(GameObject go, GroundType groundType)
+
+        public void SwapToPavementBox(GroundBox go, GroundType groundType)
         {
             GroundBox spawned = null;
             switch (groundType)
@@ -164,9 +118,12 @@ namespace ProjectSims.Simulation.CoreSystem
             spawned.transform.position = go.transform.position;
             spawned.transform.rotation = go.transform.rotation;
             spawned.transform.SetSiblingIndex(go.transform.GetSiblingIndex());
-            DestroyImmediate(go);
-            UnityEditor.Selection.activeGameObject = spawned.gameObject;
+            spawned.SetIndex(go.Index);
+            
+            _data.ChangeGroundAtIndex(spawned);
+
+            Destroy(go.gameObject);
         }
-#endif
+
     }
 }

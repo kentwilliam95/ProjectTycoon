@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ProjectSims.Simulation.CoreSystem;
+using UnityEditor;
 using UnityEngine;
 
 namespace Simulation.GroundEditor
@@ -15,18 +16,18 @@ namespace Simulation.GroundEditor
             public Vector2Int Area;
             public GroundDetail[] Grounds;
         }
-        
+
         [System.Serializable]
         public struct GroundDetail
         {
             public GroundArea.GroundType GroundType;
             public Vector2Int IndexV2;
             public int Index;
-            
+
             public Vector3 LocalPosition;
             public Vector3 Rotation;
         }
-        
+
         public SaveData _save;
         public Vector2Int Area => _save.Area;
 
@@ -41,7 +42,10 @@ namespace Simulation.GroundEditor
             var indexV2 = change.Index;
             var indexV1 = indexV2.y * Area.x + indexV2.x;
 
-            if (indexV1 >= _save.Grounds.Length) { Debug.Log($"[GroundData] could not change data, invalid index."); }
+            if (indexV1 >= _save.Grounds.Length)
+            {
+                Debug.Log($"[GroundData] could not change data, invalid index.");
+            }
 
             var groundDetail = _save.Grounds[indexV1];
             groundDetail.GroundType = change.GroundType;
@@ -50,6 +54,11 @@ namespace Simulation.GroundEditor
             groundDetail.Rotation = change.transform.rotation.eulerAngles;
 
             _save.Grounds[indexV1] = groundDetail;
+
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+            UnityEditor.AssetDatabase.SaveAssetIfDirty(this);
+#endif
         }
 
         public void SetupGroundBox(Vector2Int index, Vector3 localPosition, GroundArea.GroundType groundType)
@@ -60,5 +69,5 @@ namespace Simulation.GroundEditor
             _save.Grounds[indexV1].IndexV2 = index;
             _save.Grounds[indexV1].Index = indexV1;
         }
-    }   
+    }
 }

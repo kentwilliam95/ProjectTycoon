@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using ProjectSims.Simulation.CoreSystem;
 using UnityEngine;
 
 namespace Simulation.GroundEditor
@@ -9,16 +7,16 @@ namespace Simulation.GroundEditor
     {
         private LayerMask _layerMaskGround;
         private RaycastHit[] _hitResult;
-        private Plane raycastPlane;
 
         [SerializeField] private Camera _camera;
         [SerializeField] private Transform debugObj;
-
+        [SerializeField] private GroundArea _groundArea;
+        
+        private GroundBox _selectedGroundBox;
         private void Awake()
         {
             _layerMaskGround = LayerMask.GetMask("Ground");
             _hitResult = new RaycastHit[4];
-            raycastPlane = new Plane(Vector3.down, 0.85f);
         }
 
         private void Update()
@@ -35,8 +33,35 @@ namespace Simulation.GroundEditor
                 {
                     var box = closest.Item1.collider.GetComponentInParent<GroundBox>();
                     debugObj.position = box.TopCenter;
+                    _selectedGroundBox = box;
                 }   
             }
+        }
+
+        public void ChangeToPavement()
+        {
+            if (!_selectedGroundBox)
+            {
+                Debug.Log("[GroundEditor Controller] No selected GroundBox!");
+                return;
+            }
+
+            debugObj.transform.position = Vector3.one * 5000;
+            _groundArea.SwapToPavementBox(_selectedGroundBox, GroundArea.GroundType.Pavement);
+            _selectedGroundBox = null;
+        }
+
+        public void ChangeToGrass()
+        {
+            if (!_selectedGroundBox)
+            {
+                Debug.Log("[GroundEditor Controller] No selected GroundBox!");
+                return;
+            }
+            
+            debugObj.transform.position = Vector3.one * 5000;
+            _groundArea.SwapToPavementBox(_selectedGroundBox, GroundArea.GroundType.Grass);
+            _selectedGroundBox = null;
         }
 
         private (RaycastHit, bool) GetRaycastHitClosestToCamera(int hitCount, Camera camera)
@@ -54,7 +79,7 @@ namespace Simulation.GroundEditor
                 }
             }
 
-            return (target, max != float.MaxValue ? true : false);
+            return (target, max != float.MaxValue);
         }
     }
 }
