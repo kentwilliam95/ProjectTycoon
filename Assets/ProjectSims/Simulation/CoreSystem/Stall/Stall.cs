@@ -174,6 +174,7 @@ namespace Simulation.Stalls
         private IEnumerator MakeMenuForCustomer(ProductSO product, System.Action<Stall, EndProduct> onComplete)
         {
             //Todo: this is not fixed 2 seconds, it depends on stall equipment and worker condition
+            _inventory.Get(product, 1);
             yield return new WaitForSeconds(2);
             onComplete?.Invoke(this, new EndProduct(_serving.Person, product));
             ResetServeState();

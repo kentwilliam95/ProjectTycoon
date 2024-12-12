@@ -16,13 +16,12 @@ namespace Simulation.Inventory
             bool isContain = _dictInventory.ContainsKey(item);
             if (!isContain)
             {
-                Debug.Log("Add New Item!");
                 _dictInventory.Add(item, qty);
             }
             else
             {
-                Debug.Log("Modify Item quantity!");
                 _dictInventory[item] += qty;
+                Debug.Log($"Modify Item {item.Name}: {_dictInventory[item]}");
             }
         }
 
