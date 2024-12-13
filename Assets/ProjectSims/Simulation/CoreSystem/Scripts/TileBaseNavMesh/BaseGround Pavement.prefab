@@ -189,17 +189,17 @@ PrefabInstance:
     - target: {fileID: 2230534902955131819, guid: d57900504de8d4306b4bedf98faaf041,
         type: 3}
       propertyPath: _ogColor.b
-      value: 0.5764706
+      value: 0.6320754
       objectReference: {fileID: 0}
     - target: {fileID: 2230534902955131819, guid: d57900504de8d4306b4bedf98faaf041,
         type: 3}
       propertyPath: _ogColor.g
-      value: 0.5176471
+      value: 0.6320754
       objectReference: {fileID: 0}
     - target: {fileID: 2230534902955131819, guid: d57900504de8d4306b4bedf98faaf041,
         type: 3}
       propertyPath: _ogColor.r
-      value: 0.48235297
+      value: 0.6320754
       objectReference: {fileID: 0}
     - target: {fileID: 5171314491562527030, guid: d57900504de8d4306b4bedf98faaf041,
         type: 3}

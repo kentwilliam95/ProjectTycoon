@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using ProjectSims.Simulation.CoreSystem;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace Simulation.GroundEditor
         {
             None,
             Single,
+            Mix
         }
 
         private LayerMask _layerMaskGround;
@@ -25,7 +27,6 @@ namespace Simulation.GroundEditor
         
         private GroundBox _selectedGroundBox;
         private List<GroundBox> _multipleSelectGroundBox;
-        private Vector3 _initCamPos;
 
         private void Awake()
         {
@@ -36,17 +37,34 @@ namespace Simulation.GroundEditor
             _uiInputController.OnUpdate = Input_OnDrag;
             _uiInputController.OnClick = Input_OnClick;
             _uiInputController.OnPointerRelease = Input_OnPointerRelease;
-            _initCamPos = _camera.transform.position;
+        }
+
+        private void Start()
+        {
+            _groundArea.LoadGround();
         }
 
         private void Input_OnPointerRelease()
         {
-            _initCamPos = _camera.transform.position;
+            for (int i = _multipleSelectGroundBox.Count - 1; i >= 0 ; i--)
+            {
+                var box = _multipleSelectGroundBox[i];
+                if (box.EditState == GroundBox.MarkState.PrepareToDelete)
+                {
+                    box.SetState(GroundBox.MarkState.ReadyToDelete);
+                }
+
+                if (box.EditState == GroundBox.MarkState.Delete)
+                {
+                    box.SetState(GroundBox.MarkState.None);
+                    _multipleSelectGroundBox.RemoveAt(i);
+                }
+            }   
         }
 
         private void Input_OnClick()
         {
-            HandleSingleSelect();
+            // HandleSingleSelect();
         }
         
         private void HandleSingleSelect()
@@ -56,15 +74,20 @@ namespace Simulation.GroundEditor
             GroundBox box = GetRaycastMousePos<GroundBox>(Input.mousePosition, _layerMaskGround);
             if (!box) { return; }
 
-            if (!_multipleSelectGroundBox.Contains(box))
+            if (box.EditState == GroundBox.MarkState.None)
             {
-                box.Select();
-                _multipleSelectGroundBox.Add(box);
+                if (!_multipleSelectGroundBox.Contains(box))
+                {
+                    box.SetState( GroundBox.MarkState.PrepareToDelete);
+                    box.Select();
+                    _multipleSelectGroundBox.Add(box);
+                }   
             }
-            else
+            
+            if(box.EditState == GroundBox.MarkState.ReadyToDelete)
             {
+                box.SetState(GroundBox.MarkState.Delete);
                 box.UnSelect();
-                _multipleSelectGroundBox.Remove(box);
             }
         }
 
@@ -155,6 +178,12 @@ namespace Simulation.GroundEditor
         }
 
         private void Input_OnDrag(Vector3 direction)
+        {
+            HandleSingleSelect();
+            HandleCameraMovement(direction);
+        }
+
+        private void HandleCameraMovement(Vector3 direction)
         {
             if (_selectionMode == SelectionMode.Single) { return; }
 

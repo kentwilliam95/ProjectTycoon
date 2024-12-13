@@ -1643,6 +1643,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2572274166647790180, guid: b11850ffcb0a14441a46798ceb1173b8,
+        type: 3}
+      propertyPath: m_text
+      value: Edit Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2721240025796869955, guid: b11850ffcb0a14441a46798ceb1173b8,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1736,32 +1741,32 @@ PrefabInstance:
     - target: {fileID: 3486266425482231557, guid: b11850ffcb0a14441a46798ceb1173b8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3486266425482231557, guid: b11850ffcb0a14441a46798ceb1173b8,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3486266425482231557, guid: b11850ffcb0a14441a46798ceb1173b8,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 358.97134
       objectReference: {fileID: 0}
     - target: {fileID: 3486266425482231557, guid: b11850ffcb0a14441a46798ceb1173b8,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 47.312042
       objectReference: {fileID: 0}
     - target: {fileID: 3486266425482231557, guid: b11850ffcb0a14441a46798ceb1173b8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 588.45703
       objectReference: {fileID: 0}
     - target: {fileID: 3486266425482231557, guid: b11850ffcb0a14441a46798ceb1173b8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -23.656021
       objectReference: {fileID: 0}
     - target: {fileID: 3775268810976554486, guid: b11850ffcb0a14441a46798ceb1173b8,
         type: 3}
@@ -1959,6 +1964,11 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5827630708377202901, guid: b11850ffcb0a14441a46798ceb1173b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5893875393693826778, guid: b11850ffcb0a14441a46798ceb1173b8,
         type: 3}
       propertyPath: m_IsActive
       value: 0
