@@ -21,7 +21,8 @@ namespace ProjectSims.Simulation.CoreSystem
         [SerializeField] private GroundData _data;
         [SerializeField] private GroundBox _grassBoxTemplate;
         [SerializeField] private GroundBox _pavementBoxTemplate;
-
+        [SerializeField] private NavMeshSurface _navMeshSurface;
+        
         private void Awake()
         {
             Instance = this;
@@ -52,20 +53,7 @@ namespace ProjectSims.Simulation.CoreSystem
 
         public void GenerateDefaultGround()
         {
-            _data.ClearSaveData();
-            
-            Vector3 startPos = new Vector3(0, 0, 0);
-            for (int i = 0; i < _data.Area.y; i++)
-            {
-                for (int j = 0; j < _data.Area.x; j++)
-                {
-                    _data.SetupGroundBox(new Vector2Int(j, i), startPos, GroundType.Grass);
-                    startPos.x += 1f;
-                }
-            
-                startPos.x = 0;
-                startPos.z -= 1f;
-            }
+            _data.SetupNewGround();
         }
 
         public void LoadGround()
@@ -125,5 +113,18 @@ namespace ProjectSims.Simulation.CoreSystem
             Destroy(go.gameObject);
         }
 
+        public void ClearGround()
+        {
+            _data.ClearSaveData();
+            for (int i = transform.childCount - 1; i >= 0; i--)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+        }
+
+        public void BakeNavMesh()
+        {
+            _navMeshSurface.BuildNavMesh();
+        }
     }
 }

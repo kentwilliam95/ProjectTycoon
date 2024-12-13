@@ -11,7 +11,7 @@ namespace Simulation.UI
     {
         [field: SerializeField] public TextMeshProUGUI Text { get; private set; }
         [field: SerializeField] public Button Button { get; private set; }
-
+        [SerializeField] private string _buttonText;
         private void OnValidate()
         {
             if (!Text)
@@ -23,6 +23,8 @@ namespace Simulation.UI
             {
                 Button = GetComponentInChildren<UnityEngine.UI.Button>();
             }
+            
+            Text.SetText(_buttonText);
         }
     }
 }

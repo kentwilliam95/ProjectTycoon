@@ -35,6 +35,10 @@ namespace Simulation.GroundEditor
         {
             // _save.Grounds.Clear();
             _save.Grounds = new GroundDetail[Area.x * Area.y];
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+            UnityEditor.AssetDatabase.SaveAssetIfDirty(this);
+#endif
         }
 
         public void ChangeGroundAtIndex(GroundBox change)
@@ -61,7 +65,24 @@ namespace Simulation.GroundEditor
 #endif
         }
 
-        public void SetupGroundBox(Vector2Int index, Vector3 localPosition, GroundArea.GroundType groundType)
+        public void SetupNewGround()
+        {
+            ClearSaveData();
+            Vector3 startPos = new Vector3(0, 0, 0);
+            for (int i = 0; i < Area.y; i++)
+            {
+                for (int j = 0; j < Area.x; j++)
+                {
+                    SetupGroundBox(new Vector2Int(j, i), startPos, GroundArea.GroundType.Grass);
+                    startPos.x += 1f;
+                }
+            
+                startPos.x = 0;
+                startPos.z -= 1f;
+            }
+        }
+
+        private void SetupGroundBox(Vector2Int index, Vector3 localPosition, GroundArea.GroundType groundType)
         {
             var indexV1 = index.y * Area.x + index.x;
             _save.Grounds[indexV1].GroundType = groundType;
