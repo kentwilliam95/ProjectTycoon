@@ -181,6 +181,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2230534902955131819, guid: d57900504de8d4306b4bedf98faaf041,
+        type: 3}
+      propertyPath: _renderer
+      value: 
+      objectReference: {fileID: 8398042481425515135}
+    - target: {fileID: 2230534902955131819, guid: d57900504de8d4306b4bedf98faaf041,
+        type: 3}
+      propertyPath: _ogColor.b
+      value: 0.5764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230534902955131819, guid: d57900504de8d4306b4bedf98faaf041,
+        type: 3}
+      propertyPath: _ogColor.g
+      value: 0.5176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230534902955131819, guid: d57900504de8d4306b4bedf98faaf041,
+        type: 3}
+      propertyPath: _ogColor.r
+      value: 0.48235297
+      objectReference: {fileID: 0}
     - target: {fileID: 5171314491562527030, guid: d57900504de8d4306b4bedf98faaf041,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -243,6 +263,12 @@ MonoBehaviour:
 --- !u!4 &8245340090302756824 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1473600467760527535, guid: d57900504de8d4306b4bedf98faaf041,
+    type: 3}
+  m_PrefabInstance: {fileID: 7358339668464586615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8398042481425515135 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1339193984332680456, guid: d57900504de8d4306b4bedf98faaf041,
     type: 3}
   m_PrefabInstance: {fileID: 7358339668464586615}
   m_PrefabAsset: {fileID: 0}

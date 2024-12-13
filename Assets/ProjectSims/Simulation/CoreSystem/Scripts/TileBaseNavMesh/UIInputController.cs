@@ -43,7 +43,8 @@ namespace Simulation.GroundEditor
             }
 
             _outer.transform.position = eventData.position;
-            OnDragging?.Invoke(_direction * dist/ _radius);
+            // OnDragging?.Invoke(_direction * dist/ _radius);
+            OnDragging?.Invoke(eventData.position);
         }
 
         private void Update()
