@@ -15,16 +15,16 @@ MonoBehaviour:
   _save:
     Area: {x: 20, y: 15}
     Grounds:
-    - GroundType: 1
+    - GroundType: 0
       IndexV2: {x: 0, y: 0}
       Index: 0
       LocalPosition: {x: 1, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 1
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
       IndexV2: {x: 1, y: 0}
       Index: 1
       LocalPosition: {x: 2, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
+      Rotation: {x: -0, y: 0, z: 0}
     - GroundType: 1
       IndexV2: {x: 2, y: 0}
       Index: 2
@@ -115,16 +115,16 @@ MonoBehaviour:
       Index: 19
       LocalPosition: {x: 20, y: 0, z: 0}
       Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 1
+    - GroundType: 0
       IndexV2: {x: 0, y: 1}
       Index: 20
       LocalPosition: {x: 1, y: 0, z: -1}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 1
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
       IndexV2: {x: 1, y: 1}
       Index: 21
       LocalPosition: {x: 2, y: 0, z: -1}
-      Rotation: {x: 0, y: 0, z: 0}
+      Rotation: {x: -0, y: 0, z: 0}
     - GroundType: 1
       IndexV2: {x: 2, y: 1}
       Index: 22
@@ -215,11 +215,11 @@ MonoBehaviour:
       Index: 39
       LocalPosition: {x: 20, y: 0, z: -1}
       Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 1
+    - GroundType: 0
       IndexV2: {x: 0, y: 2}
       Index: 40
       LocalPosition: {x: 1, y: 0, z: -2}
-      Rotation: {x: 0, y: 0, z: 0}
+      Rotation: {x: -0, y: 0, z: 0}
     - GroundType: 1
       IndexV2: {x: 1, y: 2}
       Index: 41
@@ -315,11 +315,11 @@ MonoBehaviour:
       Index: 59
       LocalPosition: {x: 20, y: 0, z: -2}
       Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 1
+    - GroundType: 0
       IndexV2: {x: 0, y: 3}
       Index: 60
       LocalPosition: {x: 1, y: 0, z: -3}
-      Rotation: {x: 0, y: 0, z: 0}
+      Rotation: {x: -0, y: 0, z: 0}
     - GroundType: 1
       IndexV2: {x: 1, y: 3}
       Index: 61
@@ -415,11 +415,11 @@ MonoBehaviour:
       Index: 79
       LocalPosition: {x: 20, y: 0, z: -3}
       Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 1
+    - GroundType: 0
       IndexV2: {x: 0, y: 4}
       Index: 80
       LocalPosition: {x: 1, y: 0, z: -4}
-      Rotation: {x: 0, y: 0, z: 0}
+      Rotation: {x: -0, y: 0, z: 0}
     - GroundType: 1
       IndexV2: {x: 1, y: 4}
       Index: 81
@@ -915,11 +915,11 @@ MonoBehaviour:
       Index: 179
       LocalPosition: {x: 20, y: 0, z: -8}
       Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 1
+    - GroundType: 0
       IndexV2: {x: 0, y: 9}
       Index: 180
       LocalPosition: {x: 1, y: 0, z: -9}
-      Rotation: {x: 0, y: 0, z: 0}
+      Rotation: {x: -0, y: 0, z: 0}
     - GroundType: 1
       IndexV2: {x: 1, y: 9}
       Index: 181
@@ -935,11 +935,11 @@ MonoBehaviour:
       Index: 183
       LocalPosition: {x: 4, y: 0, z: -9}
       Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 1
+    - GroundType: 0
       IndexV2: {x: 4, y: 9}
       Index: 184
       LocalPosition: {x: 5, y: 0, z: -9}
-      Rotation: {x: 0, y: 0, z: 0}
+      Rotation: {x: -0, y: 0, z: 0}
     - GroundType: 1
       IndexV2: {x: 5, y: 9}
       Index: 185
