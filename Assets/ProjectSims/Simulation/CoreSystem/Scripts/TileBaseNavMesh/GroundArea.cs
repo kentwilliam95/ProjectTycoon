@@ -41,16 +41,6 @@ namespace ProjectSims.Simulation.CoreSystem
             Gizmos.DrawWireCube(topLeft, new Vector3(_data.Area.x, 1f, _data.Area.y));
         }
 
-        // private IEnumerator DelayPerFrame(int frameCount, Action onComplete)
-        // {
-        //     for (int i = 0; i < frameCount; i++)
-        //     {
-        //         yield return null;
-        //     }
-        //
-        //     onComplete?.Invoke();
-        // }
-
         public void GenerateDefaultGround()
         {
             _data.SetupNewGround();

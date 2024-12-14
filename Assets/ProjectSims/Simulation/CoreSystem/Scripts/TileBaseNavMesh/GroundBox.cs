@@ -55,12 +55,17 @@ namespace Simulation.GroundEditor
         {
             _mbp.SetColor("_BaseColor", _ogColor);
             _renderer.SetPropertyBlock(_mbp, 0);
-            _isSelected = false;
         }
 
         public void SetState(MarkState state)
         {
             EditState = state;
+        }
+
+        public void ResetState()
+        {
+            SetState(MarkState.None);
+            UnSelect();
         }
     }
 }

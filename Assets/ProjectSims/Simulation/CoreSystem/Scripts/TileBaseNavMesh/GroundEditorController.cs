@@ -195,12 +195,12 @@ namespace Simulation.GroundEditor
 
         private void ResetBoxColor()
         {
-            for (int i = 0; i < _multipleSelectGroundBox.Count; i++) { _multipleSelectGroundBox[i].UnSelect(); }
+            for (int i = 0; i < _multipleSelectGroundBox.Count; i++) { _multipleSelectGroundBox[i].ResetState(); }
             _multipleSelectGroundBox.Clear();
 
             if (_selectedGroundBox)
             {
-                _selectedGroundBox.UnSelect();   
+                _selectedGroundBox.ResetState();
             }
             
             _selectedGroundBox = null;
