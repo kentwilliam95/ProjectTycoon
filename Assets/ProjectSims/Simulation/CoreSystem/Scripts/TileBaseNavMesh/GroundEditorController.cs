@@ -68,7 +68,8 @@ namespace Simulation.GroundEditor
                     box.SetState(GroundBox.MarkState.None);
                     _multipleSelectGroundBox.RemoveAt(i);
                 }
-            }   
+            }
+            _uiGroundEditor.SetTitle(_multipleSelectGroundBox.Count > 0?"Selected could be converted to grass or pavement, see Control UI":"select ground to continue.");
         }
 
         private void Input_OnClick()
@@ -79,10 +80,12 @@ namespace Simulation.GroundEditor
         private void HandleSingleSelect()
         {
             if (_selectionMode != SelectionMode.Single) { return; }
-
+            
+            _uiGroundEditor.SetTitle(_multipleSelectGroundBox.Count > 0?"Selected could be converted to grass or pavement, see Control UI":"select ground to continue.");
+            
             GroundBox box = GetRaycastMousePos<GroundBox>(Input.mousePosition, _layerMaskGround);
             if (!box) { return; }
-
+            
             if (box.EditState == GroundBox.MarkState.None)
             {
                 if (!_multipleSelectGroundBox.Contains(box))
@@ -169,6 +172,7 @@ namespace Simulation.GroundEditor
                 _uiGroundEditor.SetTitle(string.Empty);
                 return;
             }
+            
             _uiGroundEditor.SetTitle("Select ground and replace it with pavement or grass!");
             _uiGroundEditor.EnableControls();
             _uiGroundEditor.DisableMenu();
