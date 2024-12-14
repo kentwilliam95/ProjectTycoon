@@ -811,6 +811,7 @@ MonoBehaviour:
   _camera: {fileID: 864622380}
   _groundArea: {fileID: 1427889732}
   _uiInputController: {fileID: 449662955}
+  _uiGroundEditor: {fileID: 1997482100}
   _camSpeed: 5
 --- !u!1 &1416002567
 GameObject:
@@ -2148,6 +2149,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b11850ffcb0a14441a46798ceb1173b8, type: 3}
+--- !u!114 &1997482100 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 194768678169812423, guid: b11850ffcb0a14441a46798ceb1173b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1997482099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87bc4eac75794ce1b9e4851672db458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

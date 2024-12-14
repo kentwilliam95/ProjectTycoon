@@ -21,13 +21,15 @@ namespace Simulation.GroundEditor
         [SerializeField] private Camera _camera;
         [SerializeField] private GroundArea _groundArea;
         [SerializeField] private UIInputController _uiInputController;
-
+        [SerializeField] private UIGroundEditor _uiGroundEditor;
+        
         [Header("Camera Speed")] [SerializeField]
         private float _camSpeed = 5;
+        private float _orthoSize;
         
         private GroundBox _selectedGroundBox;
         private List<GroundBox> _multipleSelectGroundBox;
-
+        
         private void Awake()
         {
             _layerMaskGround = LayerMask.GetMask("Ground");
@@ -37,11 +39,18 @@ namespace Simulation.GroundEditor
             _uiInputController.OnUpdate = Input_OnDrag;
             _uiInputController.OnClick = Input_OnClick;
             _uiInputController.OnPointerRelease = Input_OnPointerRelease;
+            _uiGroundEditor.DisableControls();
+            _uiGroundEditor.EnableMenu();
+            _uiGroundEditor.DisableSelection();
+
+            _uiGroundEditor.OnZoomChange = Zoom_OnValueChanged;
+            _orthoSize = _camera.orthographicSize;
         }
 
         private void Start()
         {
             _groundArea.LoadGround();
+            _uiGroundEditor.EnableSelection();
         }
 
         private void Input_OnPointerRelease()
@@ -64,7 +73,7 @@ namespace Simulation.GroundEditor
 
         private void Input_OnClick()
         {
-            // HandleSingleSelect();
+            
         }
         
         private void HandleSingleSelect()
@@ -154,8 +163,16 @@ namespace Simulation.GroundEditor
             if (_selectionMode == SelectionMode.Single)
             {
                 _selectionMode = SelectionMode.None;
+                _uiGroundEditor.DisableControls();
+                _uiGroundEditor.EnableMenu();
+                _uiGroundEditor.UnHighlightButtonReplace();
+                _uiGroundEditor.SetTitle(string.Empty);
                 return;
             }
+            _uiGroundEditor.SetTitle("Select ground and replace it with pavement or grass!");
+            _uiGroundEditor.EnableControls();
+            _uiGroundEditor.DisableMenu();
+            _uiGroundEditor.HighlightButtonReplace();
             _selectionMode = SelectionMode.Single;
         }
 
@@ -191,6 +208,11 @@ namespace Simulation.GroundEditor
             var upDir = _camera.transform.up * direction.y;
             var comb = rightDir + upDir;
             _camera.transform.position += comb * Time.deltaTime * _camSpeed;
+        }
+
+        private void Zoom_OnValueChanged(float value)
+        {
+            _camera.orthographicSize = _orthoSize + value;
         }
 
         private void ResetBoxColor()
