@@ -16,7 +16,7 @@ namespace Simulation.UI
         public virtual void Hide()
         {
             _cg.alpha = 0;
-            _cg.blocksRaycasts = true;
+            _cg.blocksRaycasts = false;
         }
     }   
 }

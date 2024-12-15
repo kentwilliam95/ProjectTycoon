@@ -215,27 +215,27 @@ MonoBehaviour:
       Index: 39
       LocalPosition: {x: 19, y: 0, z: -1}
       Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 1
+    - GroundType: 0
       IndexV2: {x: 0, y: 2}
       Index: 40
       LocalPosition: {x: 0, y: 0, z: -2}
       Rotation: {x: -0, y: 0, z: 0}
-    - GroundType: 1
+    - GroundType: 0
       IndexV2: {x: 1, y: 2}
       Index: 41
       LocalPosition: {x: 1, y: 0, z: -2}
       Rotation: {x: -0, y: 0, z: 0}
-    - GroundType: 1
+    - GroundType: 0
       IndexV2: {x: 2, y: 2}
       Index: 42
       LocalPosition: {x: 2, y: 0, z: -2}
       Rotation: {x: -0, y: 0, z: 0}
-    - GroundType: 1
+    - GroundType: 0
       IndexV2: {x: 3, y: 2}
       Index: 43
       LocalPosition: {x: 3, y: 0, z: -2}
       Rotation: {x: -0, y: 0, z: 0}
-    - GroundType: 1
+    - GroundType: 0
       IndexV2: {x: 4, y: 2}
       Index: 44
       LocalPosition: {x: 4, y: 0, z: -2}

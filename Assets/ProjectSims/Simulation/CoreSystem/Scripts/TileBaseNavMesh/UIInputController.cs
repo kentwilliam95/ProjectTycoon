@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Simulation.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Simulation.GroundEditor
 {
-    public class UIInputController : MonoBehaviour, IDragHandler,IPointerDownHandler,IPointerUpHandler
+    public class UIInputController : UiBase, IDragHandler,IPointerDownHandler,IPointerUpHandler
     {
         [SerializeField] private float _radius = 150f;
         [SerializeField] private float _clickDelay = 0.3f;

@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using ProjectSims.Simulation.CoreSystem;
+using Simulation.UI;
 using UnityEngine;
 
 namespace Simulation.GroundEditor
@@ -49,12 +51,15 @@ namespace Simulation.GroundEditor
 
         private void Start()
         {
+            UILoading.Instance.Hide();
             _groundArea.LoadGround();
             _uiGroundEditor.EnableSelection();
         }
 
         private void Input_OnPointerRelease()
         {
+            if (_selectionMode != SelectionMode.Single) { return; }
+
             for (int i = _multipleSelectGroundBox.Count - 1; i >= 0 ; i--)
             {
                 var box = _multipleSelectGroundBox[i];
@@ -170,6 +175,7 @@ namespace Simulation.GroundEditor
                 _uiGroundEditor.EnableMenu();
                 _uiGroundEditor.UnHighlightButtonReplace();
                 _uiGroundEditor.SetTitle(string.Empty);
+                StartCoroutine(StartBakeNavMesh());
                 return;
             }
             
@@ -230,6 +236,15 @@ namespace Simulation.GroundEditor
             }
             
             _selectedGroundBox = null;
+        }
+
+        private IEnumerator StartBakeNavMesh()
+        {
+            UILoading.Instance.Show("Generating Mesh!");
+            yield return new WaitForSeconds(1f);
+            _groundArea.BakeNavMesh();
+            yield return new WaitForSeconds(1f);
+            UILoading.Instance.Hide();
         }
     }
 }
