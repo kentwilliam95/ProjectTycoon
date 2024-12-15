@@ -1,13 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace Simulation.Products
 {
     
-    [CreateAssetMenu(menuName = "Simulation/Item/Tool"), CanEditMultipleObjects]
+    [CreateAssetMenu(menuName = "Simulation/Item/Tool")]
     public class ToolSO : Item
     {
         [field: SerializeField] public Sprite Sprite { get; private set; }

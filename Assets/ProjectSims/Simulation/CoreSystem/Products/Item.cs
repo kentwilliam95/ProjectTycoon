@@ -1,12 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace Simulation.Products
 {
-    [CanEditMultipleObjects]
     [CreateAssetMenu(menuName = "Simulation/Item/Item")]
     public class Item: ScriptableObject
     {
