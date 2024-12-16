@@ -1,15 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using ProjectSims.Simulation.CoreSystem;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace Simulation.GroundEditor
 {
     [CreateAssetMenu(menuName = "Simulation/Data/GroundData")]
     public class GroundData : ScriptableObject
     {
+        private const string SAVEKEY = "GroundData";
+
         [System.Serializable]
         public struct SaveData
         {
@@ -31,9 +35,21 @@ namespace Simulation.GroundEditor
         public SaveData _save;
         public Vector2Int Area => _save.Area;
 
+        public void Init()
+        {
+            var str = PlayerPrefs.GetString(SAVEKEY);
+            if (!String.IsNullOrEmpty(str))
+            {
+                _save = JsonUtility.FromJson<SaveData>(str);
+            }
+            else
+            {
+                SetupNewGround(10, 10);
+            }
+        }
+
         public void ClearSaveData()
         {
-            // _save.Grounds.Clear();
             _save.Grounds = new GroundDetail[Area.x * Area.y];
 #if UNITY_EDITOR
             EditorUtility.SetDirty(this);
@@ -65,8 +81,9 @@ namespace Simulation.GroundEditor
 #endif
         }
 
-        public void SetupNewGround()
+        public void SetupNewGround(int x, int y)
         {
+            _save.Area = new Vector2Int(x, y);
             ClearSaveData();
             Vector3 startPos = new Vector3(0, 0, 0);
             for (int i = 0; i < Area.y; i++)
@@ -76,10 +93,12 @@ namespace Simulation.GroundEditor
                     SetupGroundBox(new Vector2Int(j, i), startPos, GroundArea.GroundType.Grass);
                     startPos.x += 1f;
                 }
-            
+
                 startPos.x = 0;
                 startPos.z -= 1f;
             }
+
+            PlayerPrefs.SetString(SAVEKEY, JsonUtility.ToJson(_save));
         }
 
         private void SetupGroundBox(Vector2Int index, Vector3 localPosition, GroundArea.GroundType groundType)

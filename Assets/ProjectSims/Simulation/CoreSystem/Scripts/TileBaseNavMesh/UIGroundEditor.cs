@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Simulation.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Simulation.GroundEditor
 {
-    public class UIGroundEditor : MonoBehaviour
+    public class UIGroundEditor : UiBase
     {
         [SerializeField] private CanvasGroup _goMenu;
         [SerializeField] private CanvasGroup _goSelection;
