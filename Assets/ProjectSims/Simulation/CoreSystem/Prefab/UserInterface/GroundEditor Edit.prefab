@@ -3901,7 +3901,7 @@ PrefabInstance:
     - target: {fileID: 7154795234559819074, guid: a472b7d14eccb482db2fbaf811dfb6c1,
         type: 3}
       propertyPath: m_Name
-      value: BaseUi GroundEditor
+      value: GroundEditor Edit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3946,6 +3946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1c05b10eb7e4411847ff0fb28578aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cg: {fileID: 0}
   _radius: 150
   _clickDelay: 0.3
   _inner: {fileID: 2732191277961048117}
@@ -3963,6 +3964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87bc4eac75794ce1b9e4851672db458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cg: {fileID: 5604662857053952409}
   _goMenu: {fileID: 1697235265293998680}
   _goSelection: {fileID: 7943372900761456532}
   _goControl: {fileID: 2289197803716167963}
@@ -3972,6 +3974,12 @@ MonoBehaviour:
 --- !u!224 &4358057535332616245 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6339275409654548969, guid: a472b7d14eccb482db2fbaf811dfb6c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7747123027239961052}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &5604662857053952409 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 2757483304342378565, guid: a472b7d14eccb482db2fbaf811dfb6c1,
     type: 3}
   m_PrefabInstance: {fileID: 7747123027239961052}
   m_PrefabAsset: {fileID: 0}

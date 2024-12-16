@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Simulation.GroundEditor;
+using Simulation.UI;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -22,10 +23,11 @@ namespace ProjectSims.Simulation.CoreSystem
         [SerializeField] private GroundBox _grassBoxTemplate;
         [SerializeField] private GroundBox _pavementBoxTemplate;
         [SerializeField] private NavMeshSurface _navMeshSurface;
-        
+
         private void Awake()
         {
             Instance = this;
+            _data.Init();
         }
 
         public Vector3 GetRandomPoint()
@@ -41,9 +43,9 @@ namespace ProjectSims.Simulation.CoreSystem
             Gizmos.DrawWireCube(topLeft, new Vector3(_data.Area.x, 1f, _data.Area.y));
         }
 
-        public void GenerateDefaultGround()
+        public void GenerateDefaultGround(int x, int y)
         {
-            _data.SetupNewGround();
+            _data.SetupNewGround(x, y);
         }
 
         public void LoadGround()
@@ -53,6 +55,7 @@ namespace ProjectSims.Simulation.CoreSystem
 
         private IEnumerator SpawnGround()
         {
+            UILoading.Instance.Show();
             for (int i = transform.childCount - 1; i >= 0; i--)
             {
                 Destroy(transform.GetChild(i).gameObject);
@@ -68,7 +71,7 @@ namespace ProjectSims.Simulation.CoreSystem
                     case GroundType.Grass:
                         box = Instantiate(_grassBoxTemplate, transform);
                         break;
-                    
+
                     case GroundType.Pavement:
                         box = Instantiate(_pavementBoxTemplate, transform);
                         break;
@@ -77,6 +80,9 @@ namespace ProjectSims.Simulation.CoreSystem
                 box.transform.localPosition = grounds[i].LocalPosition;
                 box.SetIndex(grounds[i].IndexV2);
             }
+
+            yield return new WaitForSeconds(0.5f);
+            UILoading.Instance.Hide();
         }
 
         public void SwapToPavementBox(GroundBox go, GroundType groundType)
@@ -97,19 +103,10 @@ namespace ProjectSims.Simulation.CoreSystem
             spawned.transform.rotation = go.transform.rotation;
             spawned.transform.SetSiblingIndex(go.transform.GetSiblingIndex());
             spawned.SetIndex(go.Index);
-            
+
             _data.ChangeGroundAtIndex(spawned);
 
             Destroy(go.gameObject);
-        }
-
-        public void ClearGround()
-        {
-            _data.ClearSaveData();
-            for (int i = transform.childCount - 1; i >= 0; i--)
-            {
-                Destroy(transform.GetChild(i).gameObject);
-            }
         }
 
         public void BakeNavMesh()
