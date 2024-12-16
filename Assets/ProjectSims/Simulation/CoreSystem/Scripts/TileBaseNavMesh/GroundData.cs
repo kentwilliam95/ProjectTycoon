@@ -48,6 +48,11 @@ namespace Simulation.GroundEditor
             }
         }
 
+        public void Save()
+        {
+            PlayerPrefs.SetString(SAVEKEY, JsonUtility.ToJson(_save));
+        }
+
         public void ClearSaveData()
         {
             _save.Grounds = new GroundDetail[Area.x * Area.y];
@@ -98,7 +103,7 @@ namespace Simulation.GroundEditor
                 startPos.z -= 1f;
             }
 
-            PlayerPrefs.SetString(SAVEKEY, JsonUtility.ToJson(_save));
+            Save();
         }
 
         private void SetupGroundBox(Vector2Int index, Vector3 localPosition, GroundArea.GroundType groundType)

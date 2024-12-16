@@ -245,6 +245,7 @@ namespace Simulation.GroundEditor
                 _uiGroundEditor.EnableMenu();
                 _uiGroundEditor.UnHighlightButtonReplace();
                 _uiGroundEditor.SetTitle(string.Empty);
+                _groundArea.SaveGround();
                 StartCoroutine(StartBakeNavMesh());
                 return;
             }

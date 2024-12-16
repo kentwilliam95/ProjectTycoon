@@ -48,6 +48,11 @@ namespace ProjectSims.Simulation.CoreSystem
             _data.SetupNewGround(x, y);
         }
 
+        public void SaveGround()
+        {
+            _data.Save();
+        }
+
         public void LoadGround()
         {
             StartCoroutine(SpawnGround());
