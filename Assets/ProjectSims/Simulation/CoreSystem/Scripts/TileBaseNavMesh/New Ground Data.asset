@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New Ground Data
   m_EditorClassIdentifier: 
   _save:
-    Area: {x: 20, y: 20}
+    Area: {x: 10, y: 10}
     Grounds:
     - GroundType: 0
       IndexV2: {x: 0, y: 0}
@@ -21,1997 +21,497 @@ MonoBehaviour:
       LocalPosition: {x: 0, y: 0, z: 0}
       Rotation: {x: 0, y: 0, z: 0}
     - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0}
-    - GroundType: 0
-      IndexV2: {x: 0, y: 0}
-      Index: 0
-      LocalPosition: {x: 0, y: 0, z: 0}
+      IndexV2: {x: 1, y: 0}
+      Index: 1
+      LocalPosition: {x: 1, y: 0, z: 0}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 2, y: 0}
+      Index: 2
+      LocalPosition: {x: 2, y: 0, z: 0}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 3, y: 0}
+      Index: 3
+      LocalPosition: {x: 3, y: 0, z: 0}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 4, y: 0}
+      Index: 4
+      LocalPosition: {x: 4, y: 0, z: 0}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 5, y: 0}
+      Index: 5
+      LocalPosition: {x: 5, y: 0, z: 0}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 6, y: 0}
+      Index: 6
+      LocalPosition: {x: 6, y: 0, z: 0}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 7, y: 0}
+      Index: 7
+      LocalPosition: {x: 7, y: 0, z: 0}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 8, y: 0}
+      Index: 8
+      LocalPosition: {x: 8, y: 0, z: 0}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 9, y: 0}
+      Index: 9
+      LocalPosition: {x: 9, y: 0, z: 0}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 0, y: 1}
+      Index: 10
+      LocalPosition: {x: 0, y: 0, z: -1}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 1, y: 1}
+      Index: 11
+      LocalPosition: {x: 1, y: 0, z: -1}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 2, y: 1}
+      Index: 12
+      LocalPosition: {x: 2, y: 0, z: -1}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 3, y: 1}
+      Index: 13
+      LocalPosition: {x: 3, y: 0, z: -1}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 4, y: 1}
+      Index: 14
+      LocalPosition: {x: 4, y: 0, z: -1}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 5, y: 1}
+      Index: 15
+      LocalPosition: {x: 5, y: 0, z: -1}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 6, y: 1}
+      Index: 16
+      LocalPosition: {x: 6, y: 0, z: -1}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 7, y: 1}
+      Index: 17
+      LocalPosition: {x: 7, y: 0, z: -1}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 8, y: 1}
+      Index: 18
+      LocalPosition: {x: 8, y: 0, z: -1}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 9, y: 1}
+      Index: 19
+      LocalPosition: {x: 9, y: 0, z: -1}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 0, y: 2}
+      Index: 20
+      LocalPosition: {x: 0, y: 0, z: -2}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 1, y: 2}
+      Index: 21
+      LocalPosition: {x: 1, y: 0, z: -2}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 2, y: 2}
+      Index: 22
+      LocalPosition: {x: 2, y: 0, z: -2}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 3, y: 2}
+      Index: 23
+      LocalPosition: {x: 3, y: 0, z: -2}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 4, y: 2}
+      Index: 24
+      LocalPosition: {x: 4, y: 0, z: -2}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 5, y: 2}
+      Index: 25
+      LocalPosition: {x: 5, y: 0, z: -2}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 6, y: 2}
+      Index: 26
+      LocalPosition: {x: 6, y: 0, z: -2}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 7, y: 2}
+      Index: 27
+      LocalPosition: {x: 7, y: 0, z: -2}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 8, y: 2}
+      Index: 28
+      LocalPosition: {x: 8, y: 0, z: -2}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 9, y: 2}
+      Index: 29
+      LocalPosition: {x: 9, y: 0, z: -2}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 0, y: 3}
+      Index: 30
+      LocalPosition: {x: 0, y: 0, z: -3}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 1, y: 3}
+      Index: 31
+      LocalPosition: {x: 1, y: 0, z: -3}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 2, y: 3}
+      Index: 32
+      LocalPosition: {x: 2, y: 0, z: -3}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 3, y: 3}
+      Index: 33
+      LocalPosition: {x: 3, y: 0, z: -3}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 4, y: 3}
+      Index: 34
+      LocalPosition: {x: 4, y: 0, z: -3}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 5, y: 3}
+      Index: 35
+      LocalPosition: {x: 5, y: 0, z: -3}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 6, y: 3}
+      Index: 36
+      LocalPosition: {x: 6, y: 0, z: -3}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 7, y: 3}
+      Index: 37
+      LocalPosition: {x: 7, y: 0, z: -3}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 8, y: 3}
+      Index: 38
+      LocalPosition: {x: 8, y: 0, z: -3}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 9, y: 3}
+      Index: 39
+      LocalPosition: {x: 9, y: 0, z: -3}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 0, y: 4}
+      Index: 40
+      LocalPosition: {x: 0, y: 0, z: -4}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 1, y: 4}
+      Index: 41
+      LocalPosition: {x: 1, y: 0, z: -4}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 2, y: 4}
+      Index: 42
+      LocalPosition: {x: 2, y: 0, z: -4}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 3, y: 4}
+      Index: 43
+      LocalPosition: {x: 3, y: 0, z: -4}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 4, y: 4}
+      Index: 44
+      LocalPosition: {x: 4, y: 0, z: -4}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 5, y: 4}
+      Index: 45
+      LocalPosition: {x: 5, y: 0, z: -4}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 6, y: 4}
+      Index: 46
+      LocalPosition: {x: 6, y: 0, z: -4}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 7, y: 4}
+      Index: 47
+      LocalPosition: {x: 7, y: 0, z: -4}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 8, y: 4}
+      Index: 48
+      LocalPosition: {x: 8, y: 0, z: -4}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 9, y: 4}
+      Index: 49
+      LocalPosition: {x: 9, y: 0, z: -4}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 0, y: 5}
+      Index: 50
+      LocalPosition: {x: 0, y: 0, z: -5}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 1, y: 5}
+      Index: 51
+      LocalPosition: {x: 1, y: 0, z: -5}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 2, y: 5}
+      Index: 52
+      LocalPosition: {x: 2, y: 0, z: -5}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 3, y: 5}
+      Index: 53
+      LocalPosition: {x: 3, y: 0, z: -5}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 4, y: 5}
+      Index: 54
+      LocalPosition: {x: 4, y: 0, z: -5}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 5, y: 5}
+      Index: 55
+      LocalPosition: {x: 5, y: 0, z: -5}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 6, y: 5}
+      Index: 56
+      LocalPosition: {x: 6, y: 0, z: -5}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 7, y: 5}
+      Index: 57
+      LocalPosition: {x: 7, y: 0, z: -5}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 8, y: 5}
+      Index: 58
+      LocalPosition: {x: 8, y: 0, z: -5}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 9, y: 5}
+      Index: 59
+      LocalPosition: {x: 9, y: 0, z: -5}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 0, y: 6}
+      Index: 60
+      LocalPosition: {x: 0, y: 0, z: -6}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 1, y: 6}
+      Index: 61
+      LocalPosition: {x: 1, y: 0, z: -6}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 2, y: 6}
+      Index: 62
+      LocalPosition: {x: 2, y: 0, z: -6}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 3, y: 6}
+      Index: 63
+      LocalPosition: {x: 3, y: 0, z: -6}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 4, y: 6}
+      Index: 64
+      LocalPosition: {x: 4, y: 0, z: -6}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 5, y: 6}
+      Index: 65
+      LocalPosition: {x: 5, y: 0, z: -6}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 6, y: 6}
+      Index: 66
+      LocalPosition: {x: 6, y: 0, z: -6}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 7, y: 6}
+      Index: 67
+      LocalPosition: {x: 7, y: 0, z: -6}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 0
+      IndexV2: {x: 8, y: 6}
+      Index: 68
+      LocalPosition: {x: 8, y: 0, z: -6}
+      Rotation: {x: -0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 9, y: 6}
+      Index: 69
+      LocalPosition: {x: 9, y: 0, z: -6}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 0, y: 7}
+      Index: 70
+      LocalPosition: {x: 0, y: 0, z: -7}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 1, y: 7}
+      Index: 71
+      LocalPosition: {x: 1, y: 0, z: -7}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 2, y: 7}
+      Index: 72
+      LocalPosition: {x: 2, y: 0, z: -7}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 3, y: 7}
+      Index: 73
+      LocalPosition: {x: 3, y: 0, z: -7}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 4, y: 7}
+      Index: 74
+      LocalPosition: {x: 4, y: 0, z: -7}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 5, y: 7}
+      Index: 75
+      LocalPosition: {x: 5, y: 0, z: -7}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 6, y: 7}
+      Index: 76
+      LocalPosition: {x: 6, y: 0, z: -7}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 7, y: 7}
+      Index: 77
+      LocalPosition: {x: 7, y: 0, z: -7}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 8, y: 7}
+      Index: 78
+      LocalPosition: {x: 8, y: 0, z: -7}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 9, y: 7}
+      Index: 79
+      LocalPosition: {x: 9, y: 0, z: -7}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 0, y: 8}
+      Index: 80
+      LocalPosition: {x: 0, y: 0, z: -8}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 1, y: 8}
+      Index: 81
+      LocalPosition: {x: 1, y: 0, z: -8}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 2, y: 8}
+      Index: 82
+      LocalPosition: {x: 2, y: 0, z: -8}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 3, y: 8}
+      Index: 83
+      LocalPosition: {x: 3, y: 0, z: -8}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 4, y: 8}
+      Index: 84
+      LocalPosition: {x: 4, y: 0, z: -8}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 5, y: 8}
+      Index: 85
+      LocalPosition: {x: 5, y: 0, z: -8}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 6, y: 8}
+      Index: 86
+      LocalPosition: {x: 6, y: 0, z: -8}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 7, y: 8}
+      Index: 87
+      LocalPosition: {x: 7, y: 0, z: -8}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 8, y: 8}
+      Index: 88
+      LocalPosition: {x: 8, y: 0, z: -8}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 9, y: 8}
+      Index: 89
+      LocalPosition: {x: 9, y: 0, z: -8}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 0, y: 9}
+      Index: 90
+      LocalPosition: {x: 0, y: 0, z: -9}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 1, y: 9}
+      Index: 91
+      LocalPosition: {x: 1, y: 0, z: -9}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 2, y: 9}
+      Index: 92
+      LocalPosition: {x: 2, y: 0, z: -9}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 3, y: 9}
+      Index: 93
+      LocalPosition: {x: 3, y: 0, z: -9}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 4, y: 9}
+      Index: 94
+      LocalPosition: {x: 4, y: 0, z: -9}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 5, y: 9}
+      Index: 95
+      LocalPosition: {x: 5, y: 0, z: -9}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 6, y: 9}
+      Index: 96
+      LocalPosition: {x: 6, y: 0, z: -9}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 7, y: 9}
+      Index: 97
+      LocalPosition: {x: 7, y: 0, z: -9}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 8, y: 9}
+      Index: 98
+      LocalPosition: {x: 8, y: 0, z: -9}
+      Rotation: {x: 0, y: 0, z: 0}
+    - GroundType: 1
+      IndexV2: {x: 9, y: 9}
+      Index: 99
+      LocalPosition: {x: 9, y: 0, z: -9}
       Rotation: {x: 0, y: 0, z: 0}

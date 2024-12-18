@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Simulation.GroundEditor
 {
-    public class UIGroundEditorFile : UiBase
+    public class UIPopupGroundEditorFile : UiBase
     {
         [SerializeField] private Button _buttonSave;
         [SerializeField] private Button _buttonCancel;

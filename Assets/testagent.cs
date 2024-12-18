@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ProjectSims.Simulation.CoreSystem.Scripts.Interface;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class testagent : MonoBehaviour
+public class testagent : MonoBehaviour, IAgent
 {
     public Transform target;
     public NavMeshAgent Agent;
@@ -12,44 +13,46 @@ public class testagent : MonoBehaviour
     private bool MoveAcrossNavMeshesStarted;
 
     private NavMeshPath path;
-    private void Update()
+
+    private IEnumerator MoveAcrossNavMeshLink()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        OffMeshLinkData data = Agent.currentOffMeshLinkData;
+        Agent.updateRotation = false;
+
+        Vector3 startPos = Agent.transform.position;
+        Vector3 endPos = data.endPos + Vector3.up * Agent.baseOffset;
+        float duration = (endPos - startPos).magnitude / Agent.speed;
+        float t = 0.0f;
+        float tStep = 1.0f / duration;
+        while (t < 1.0f)
         {
-            path = new NavMeshPath();
-            bool valid = NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
-            Debug.Log($"Is Valid: {valid}");
-            Debug.Log(path.status);
-            Agent.SetPath(path);
+            transform.position = Vector3.Lerp(startPos, endPos, t);
+            t += tStep * Time.deltaTime;
+            yield return null;
         }
 
-        if (Agent.isOnOffMeshLink && !MoveAcrossNavMeshesStarted)
-        {
-            StartCoroutine(MoveAcrossNavMeshLink());
-            MoveAcrossNavMeshesStarted = true;
-        }
+        transform.position = endPos;
+        Agent.updateRotation = true;
+        Agent.CompleteOffMeshLink();
+        MoveAcrossNavMeshesStarted = false;
     }
 
-    IEnumerator MoveAcrossNavMeshLink()
+    public void MoveTo(Vector3 target)
     {
-            OffMeshLinkData data = Agent.currentOffMeshLinkData;
-            Agent.updateRotation = false;
+        path = new NavMeshPath();
+        bool valid = NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path);
+        Debug.Log($"Is Valid: {valid}");
+        Debug.Log(path.status);
+        Agent.SetPath(path);
+    }
 
-            Vector3 startPos = Agent.transform.position;
-            Vector3 endPos = data.endPos + Vector3.up * Agent.baseOffset;
-            float duration = (endPos - startPos).magnitude / Agent.speed;
-            float t = 0.0f;
-            float tStep = 1.0f / duration;
-            while (t < 1.0f)
-            {
-                transform.position = Vector3.Lerp(startPos, endPos, t);
-                t += tStep * Time.deltaTime;
-                yield return null;
-            }
+    public void DisableAgent()
+    {
+        Agent.enabled = false;
+    }
 
-            transform.position = endPos;
-            Agent.updateRotation = true;
-            Agent.CompleteOffMeshLink();
-            MoveAcrossNavMeshesStarted = false;   
+    public void EnableAgent()
+    {
+        Agent.enabled = true;
     }
 }

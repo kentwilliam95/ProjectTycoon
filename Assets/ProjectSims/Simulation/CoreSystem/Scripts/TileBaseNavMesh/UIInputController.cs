@@ -22,7 +22,7 @@ namespace Simulation.GroundEditor
         private float _timeClickTracker;
         
         public Action<Vector3> OnDragging;
-        public Action OnClick;
+        public Action<Vector3> OnClick;
         public Action<Vector3> OnUpdate;
         public Action OnPointerRelease;
 
@@ -71,7 +71,7 @@ namespace Simulation.GroundEditor
             var delayClick = Time.time - _timeClickTracker;
             if (delayClick < _clickDelay)
             {
-                OnClick?.Invoke();
+                OnClick?.Invoke(eventData.position);
             }
             _direction = Vector2.zero;
             _inner.transform.position = eventData.position;
