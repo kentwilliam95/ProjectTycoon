@@ -4,6 +4,7 @@ using Simulation.GroundEditor;
 using Simulation.UI;
 using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -30,6 +31,24 @@ namespace ProjectSims.Simulation.CoreSystem
             _data.Init();
         }
 
+        public Vector3 TopCenter
+        {
+            get
+            {
+                var area = _data.Area;
+                return new Vector3(area.x / 2f, 1f, area.y / 2f);
+            }
+        }
+
+        public bool IsPointInsideBoundary(Vector3 point)
+        {
+            var area = _data.Area;
+            if (point.x < 0 || point.x > area.x) { return false; }
+            if (point.z > 0 || point.z < -area.y) { return false; }
+
+            return true;
+        }
+
         public Vector3 GetRandomPoint()
         {
             float x = Random.Range(-_data.Area.x, _data.Area.x);
@@ -46,6 +65,11 @@ namespace ProjectSims.Simulation.CoreSystem
         public void GenerateDefaultGround(int x, int y)
         {
             _data.SetupNewGround(x, y);
+        }
+
+        public void SaveGround()
+        {
+            _data.Save();
         }
 
         public void LoadGround()
