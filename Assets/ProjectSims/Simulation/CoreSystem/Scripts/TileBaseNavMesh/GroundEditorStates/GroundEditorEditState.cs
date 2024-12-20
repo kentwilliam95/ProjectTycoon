@@ -178,7 +178,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
                 return;
             }
 
-            _controller.MoveCameraByDragging(direction);
+            _controller.MoveCameraByDragging(direction, _controller.CamSpeed);
         }
 
         private void Zoom_OnValueChanged(float value)

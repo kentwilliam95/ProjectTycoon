@@ -26,6 +26,8 @@ namespace Simulation.GroundEditor
         public Action<Vector3> OnUpdate;
         public Action OnPointerRelease;
 
+
+        public Vector2 Center => new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
         private void Start()
         {
             _inner.gameObject.SetActive(_showController);

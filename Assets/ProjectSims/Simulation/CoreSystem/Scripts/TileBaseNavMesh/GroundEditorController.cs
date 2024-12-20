@@ -38,7 +38,9 @@ namespace Simulation.GroundEditor
         [SerializeField]
         private UIPopupGroundEditorFile _popupGroundFileEditor;
         public UIPopupGroundEditorFile PopupGroundFileEditor => _popupGroundFileEditor;
-        
+
+        [field: SerializeField] public UIGroundEditorBuild UIGroundEditorBuild { get; private set; }
+
         [SerializeField] private Button _buttonNewFileEditor;
         public Button ButtonNewFileEditor => _buttonNewFileEditor;
         
@@ -98,13 +100,13 @@ namespace Simulation.GroundEditor
             _stateMachine.ChangeState(state);
         }
 
-        public void MoveCameraByDragging(Vector3 direction)
+        public void MoveCameraByDragging(Vector3 direction, float speed)
         {
             var camTr = Camera.transform;
             var rightDir = camTr.right * direction.x;
             var upDir = camTr.up * direction.y;
             var comb = rightDir + upDir;
-            camTr.transform.position += comb * (Time.deltaTime * CamSpeed);
+            camTr.transform.position += comb * (Time.deltaTime * speed);
         }
 
         private IEnumerator StartBakeNavMesh(Action onComplete = null)
@@ -162,6 +164,11 @@ namespace Simulation.GroundEditor
             {
                 agent.MoveTo(box.TopCenter);
             }
+        }
+
+        private void Update()
+        {
+            _stateMachine.Update();
         }
     }
 }
