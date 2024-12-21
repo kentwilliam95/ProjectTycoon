@@ -1,5 +1,7 @@
+using System.Collections;
 using ProjectSims.Simulation.Scripts.StateMachine;
 using Simulation.GroundEditor;
+using Simulation.UI;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -62,12 +64,13 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UIGroundEditorBuild.Hide();
             _selectedGo = null;
             _initPoint = Vector3.zero;
-            Debug.Log("Exit");
         }
 
         private void ExitBuildMode()
         {
+            _controller.SaveDecorations();
             _controller.ChangeState(new GroundEditorNormalState());
+            _controller.ShowLoadingScreenFor(0.5f, "Saving Decorations!");
         }
 
         private void HandleInput_OnUpdate(Vector3 dir)
@@ -80,17 +83,17 @@ namespace ProjectSims.Simulation.GroundEditorStates
                 dir.y = 0;
 
                 var angleaxis = Quaternion.AngleAxis(45, Vector3.up) * dir;
-                if (!_controller.GroundArea.IsPointInsideBoundary(_initPoint + angleaxis * Time.deltaTime))
+                if (!_controller.GroundArea.IsPointInsideBoundary(_initPoint + angleaxis * Time.deltaTime * _controller.MoveObjectSpeed))
                 {
                     return;
                 }
 
-                _initPoint += angleaxis * Time.deltaTime;
+                _initPoint += angleaxis * Time.deltaTime * _controller.MoveObjectSpeed;
                 _selectedGo.transform.position = _initPoint;
 
                 dir.y = dir.z;
                 dir.z = 0;
-                _controller.MoveCameraByDragging(dir, 1f);
+                _controller.MoveCameraByDragging(dir, _controller.MoveObjectSpeed);
             }
 
             if (_editType == TransformType.Rotate)
@@ -112,7 +115,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
             var point = GetPoint(_controller.UiInputController.Center);
             point.y = 0.5f;
             _initPoint = point;
-            _selectedGo = GameObject.Instantiate<GameObject>(so.Template, point, quaternion.identity);
+            _selectedGo = _controller.GroundArea.SpawnDecoration(so.Template, point, quaternion.identity);
         }
 
         private Vector3 GetPoint(Vector3 pos)
@@ -133,11 +136,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UIGroundEditorBuild.Title.SetText("Rotate Mode");
             _editType = TransformType.Rotate;
             
-            var ui = _controller.UIGroundEditorBuild;
-            ui.ButtonCheck.interactable = true;
-            ui.ButtonDelete.interactable = true;
-            ui.ButtonMove.interactable = true;
-            ui.ButtonRotate.interactable = true;
+            UpdateButtonsInteractable(true);
         }
 
         private void EnterMoveMode()
@@ -145,25 +144,17 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UIGroundEditorBuild.Title.SetText("Move Mode");
             _editType = TransformType.Move;
             
-            var ui = _controller.UIGroundEditorBuild;
-            ui.ButtonCheck.interactable = true;
-            ui.ButtonDelete.interactable = true;
-            ui.ButtonMove.interactable = true;
-            ui.ButtonRotate.interactable = true;
+            UpdateButtonsInteractable(true);
         }
 
         private void EnterDeleteMode()
         {
             if (!_selectedGo) { return;}
-            GameObject.Destroy(_selectedGo);
+            _controller.DestroyGameObject(_selectedGo);
             _selectedGo = null;
             _editType = TransformType.None;
             
-            var ui = _controller.UIGroundEditorBuild;
-            ui.ButtonCheck.interactable = false;
-            ui.ButtonDelete.interactable = false;
-            ui.ButtonMove.interactable = false;
-            ui.ButtonRotate.interactable = false;
+            UpdateButtonsInteractable(false);
         }
 
         private void HandleButtonCheck_OnClicked()
@@ -171,12 +162,17 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UIGroundEditorBuild.Title.SetText(string.Empty);
             _editType = TransformType.None;
             _selectedGo = null;
-            
+
+            UpdateButtonsInteractable(false);
+        }
+
+        private void UpdateButtonsInteractable(bool isInteractable)
+        {
             var ui = _controller.UIGroundEditorBuild;
-            ui.ButtonCheck.interactable = false;
-            ui.ButtonDelete.interactable = false;
-            ui.ButtonMove.interactable = false;
-            ui.ButtonRotate.interactable = false;
+            ui.ButtonCheck.interactable = isInteractable;
+            ui.ButtonDelete.interactable = isInteractable;
+            ui.ButtonMove.interactable = isInteractable;
+            ui.ButtonRotate.interactable = isInteractable;
         }
     }
 }

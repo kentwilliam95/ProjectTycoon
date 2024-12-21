@@ -46,12 +46,16 @@ namespace Simulation.GroundEditor
         
         [SerializeField] private UIGroundEditorMenu _menu;
         public UIGroundEditorMenu Menu => _menu;
+        
+        public float OrthoSize { get; private set; }
 
         [Header("Camera Speed")] 
         [SerializeField]
         private float _camSpeed = 5;
         public float CamSpeed => _camSpeed;
+        [field: SerializeField] public float MoveObjectSpeed { get; private set; }
 
+        [SerializeField] private DecorationSO _decorationSo; 
         private void Awake()
         {
             _stateMachine = new StateMachine<GroundEditorController>(this);
@@ -60,10 +64,13 @@ namespace Simulation.GroundEditor
             _hitResult = new RaycastHit[32];
         }
         
-        private void Start()
+        private IEnumerator Start()
         {
             UILoading.Instance.Hide();
-            _groundArea.LoadGround();
+            _decorationSo.InitDictionary();
+            yield return _groundArea.LoadGround();
+            yield return _groundArea.LoadDecorations();
+            
             _popupGroundFileEditor.Hide();
             _uiGroundEditorEdit.Hide();
 
@@ -74,7 +81,7 @@ namespace Simulation.GroundEditor
             }
             
             _menu.Show();
-            BakeNavMesh(() =>
+            yield return BakeNavMesh(() =>
             {
                 foreach (var agent in _agents)
                 {
@@ -83,9 +90,10 @@ namespace Simulation.GroundEditor
             });
             
             _stateMachine.ChangeState(new GroundEditorNormalState());
+            OrthoSize = Camera.orthographicSize;
         }
         
-        public void BakeNavMesh(Action onComplete = null)
+        public Coroutine BakeNavMesh(Action onComplete = null)
         {
             if (_coroutineBakeMesh != null)
             {
@@ -93,6 +101,7 @@ namespace Simulation.GroundEditor
             }
 
             _coroutineBakeMesh = StartCoroutine(StartBakeNavMesh(onComplete));
+            return _coroutineBakeMesh;
         }
 
         public void ChangeState(IState<GroundEditorController> state)
@@ -164,6 +173,30 @@ namespace Simulation.GroundEditor
             {
                 agent.MoveTo(box.TopCenter);
             }
+        }
+
+        public void DestroyGameObject(GameObject target)
+        {
+            Destroy(target);
+        }
+
+        public void SaveDecorations()
+        {
+            var decors = GetComponentsInChildren<Decoration>();
+            _groundArea.SaveDecorations(decors);
+            _groundArea.SaveGround();
+        }
+        
+        public void ShowLoadingScreenFor(float seconds, string message)
+        {
+            StartCoroutine(LoadingIEnumerator(seconds, message));
+        }
+
+        private IEnumerator LoadingIEnumerator(float seconds, string message)
+        {
+            UILoading.Instance.Show(message);
+            yield return new WaitForSeconds(seconds);
+            UILoading.Instance.Hide();
         }
 
         private void Update()

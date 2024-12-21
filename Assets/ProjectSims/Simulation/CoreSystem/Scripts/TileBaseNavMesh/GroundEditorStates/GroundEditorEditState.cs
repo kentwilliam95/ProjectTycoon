@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using ProjectSims.Simulation.CoreSystem;
 using ProjectSims.Simulation.Scripts.StateMachine;
@@ -18,7 +19,6 @@ namespace ProjectSims.Simulation.GroundEditorStates
         private GroundEditorController _controller;
         private List<GroundBox> _multipleSelectGroundBox;
         private SelectionMode _selectionMode;
-        private float _orthoSize;
         private int _bakeCount;
         private int _editCount;
 
@@ -37,7 +37,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
             t.UIGroundEditorEdit.EnableMenu();
 
             t.UIGroundEditorEdit.OnZoomChange = Zoom_OnValueChanged;
-            _orthoSize = t.Camera.orthographicSize;
+            
             _controller = t;
 
             t.UIGroundEditorEdit.EnableSelection();
@@ -183,7 +183,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
         private void Zoom_OnValueChanged(float value)
         {
-            _controller.Camera.orthographicSize = _orthoSize + value;
+            _controller.Camera.orthographicSize = _controller.OrthoSize + value;
         }
 
         private void HandleToPavement()
@@ -255,16 +255,22 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
         private void FileEditor_OnLoadClicked()
         {
-            _controller.GroundArea.LoadGround();
+            _controller.StartCoroutine(GenerateAndRebakeNavMesh());
+        }
+
+        private IEnumerator GenerateAndRebakeNavMesh()
+        {
+            yield return _controller.GroundArea.LoadGround();
+            yield return _controller.BakeNavMesh();
         }
 
         private void FileEditor_OnSaveClicked(int x, int y)
         {
-            x = Mathf.Min(x, 10);
-            y = Mathf.Min(y, 10);
+            x = Mathf.Max(x, 10);
+            y = Mathf.Max(y, 10);
 
             _controller.GroundArea.GenerateDefaultGround(x, y);
-            _controller.GroundArea.LoadGround();
+            _controller.StartCoroutine(GenerateAndRebakeNavMesh());
         }
 
         private void OpenFileEditor()

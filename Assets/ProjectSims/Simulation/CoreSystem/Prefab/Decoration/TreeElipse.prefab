@@ -144,6 +144,11 @@ PrefabInstance:
       propertyPath: _meshFilter
       value: 
       objectReference: {fileID: 5184220737842789719}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: Name
+      value: TreeElipse
+      objectReference: {fileID: 0}
     - target: {fileID: 2796079479059880491, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
         type: 3}
       propertyPath: m_Name

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6656546333839887105}
   - component: {fileID: 2317519258143843216}
   - component: {fileID: 2519824592938964320}
+  - component: {fileID: 2708363598019187384}
   m_Layer: 8
   m_Name: BaseDecor
   m_TagString: Untagged
@@ -65,3 +66,16 @@ MonoBehaviour:
   _navObstable: {fileID: 2317519258143843216}
   _size: {x: 1.8662201, y: 8.67, z: 1.6848133}
   _scale: 0.3
+--- !u!114 &2708363598019187384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2796079479059880491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597da36a9f68c408e8773d92254b97d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
