@@ -26,13 +26,13 @@ namespace ProjectSims.Simulation.GroundEditorStates
         {
             _controller = t;
             _controller.UiInputController.OnUpdate = HandleInput_OnUpdate;
-            
+
             var ui = _controller.UIGroundEditorBuild;
             ui.ButtonCheck.interactable = false;
             ui.ButtonDelete.interactable = false;
             ui.ButtonMove.interactable = false;
             ui.ButtonRotate.interactable = false;
-            
+
             _controller.UIGroundEditorBuild.OnButtonDoneClicked = ExitBuildMode;
             _controller.UIGroundEditorBuild.OnItemClicked = Handle_ItemOnClicked;
             _controller.UIGroundEditorBuild.OnButtonRotateClicked = EnterRotateMode;
@@ -41,13 +41,13 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UIGroundEditorBuild.OnButtonDeleteClicked = EnterDeleteMode;
 
             _controller.UiInputController.OnClick = HandleInput_OnClicked;
-            
+
             _controller.UIGroundEditorBuild.Show();
             _controller.UIGroundEditorBuild.Init();
 
             _controller.UIGroundEditorEdit.Hide();
             _controller.PopupGroundFileEditor.Hide();
-            
+
             _selectedGo = null;
             _initPoint = Vector3.zero;
         }
@@ -78,17 +78,14 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
         private void HandleInput_OnClicked(Vector3 pos)
         {
-            if (_editType == TransformType.None)
+            var decor = _controller.GetRaycastMousePos<Decoration>(pos, LayerMask.GetMask("Decoration"));
+            if (decor != null)
             {
-                var decor = _controller.GetRaycastMousePos<Decoration>(pos,LayerMask.GetMask("Decoration"));
-                if (decor != null)
-                {
-                    _editType = TransformType.Move;
-                    _selectedGo = decor.gameObject;
-                    _initPoint = _selectedGo.transform.position;
-                    _controller.mainCamera.MoveToTarget(decor.transform.position);
-                    UpdateButtonsInteractable(true);
-                }
+                _editType = TransformType.Move;
+                _selectedGo = decor.gameObject;
+                _initPoint = _selectedGo.transform.position;
+                _controller.mainCamera.MoveToTarget(decor.transform.position);
+                UpdateButtonsInteractable(true);
             }
         }
 
@@ -98,8 +95,11 @@ namespace ProjectSims.Simulation.GroundEditorStates
             {
                 _controller.MoveCameraByDragging(dir, _controller.CamSpeed);
             }
-            
-            if (_selectedGo == null) { return; }
+
+            if (_selectedGo == null)
+            {
+                return;
+            }
 
             if (_editType == TransformType.Move)
             {
@@ -107,7 +107,8 @@ namespace ProjectSims.Simulation.GroundEditorStates
                 dir.y = 0;
 
                 var angleaxis = Quaternion.AngleAxis(45, Vector3.up) * dir;
-                if (!_controller.GroundArea.IsPointInsideBoundary(_initPoint + angleaxis * Time.deltaTime * _controller.MoveObjectSpeed))
+                var nextPos = _initPoint + angleaxis * Time.deltaTime * _controller.MoveObjectSpeed;
+                if (!_controller.GroundArea.IsPointInsideBoundary(nextPos))
                 {
                     return;
                 }
@@ -129,11 +130,14 @@ namespace ProjectSims.Simulation.GroundEditorStates
                 _selectedGo.transform.forward = angleaxis;
             }
         }
-        
+
 
         private void Handle_ItemOnClicked(DecorationSO.AssetDetail so)
         {
-            if (_selectedGo != null) { return;}
+            if (_selectedGo != null)
+            {
+                return;
+            }
 
             EnterMoveMode();
             var point = GetPoint(_controller.UiInputController.Center);
@@ -158,7 +162,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
         {
             _controller.UIGroundEditorBuild.Title.SetText("Rotate Mode");
             _editType = TransformType.Rotate;
-            
+
             UpdateButtonsInteractable(true);
         }
 
@@ -166,17 +170,21 @@ namespace ProjectSims.Simulation.GroundEditorStates
         {
             _controller.UIGroundEditorBuild.Title.SetText("Move Mode");
             _editType = TransformType.Move;
-            
+
             UpdateButtonsInteractable(true);
         }
 
         private void EnterDeleteMode()
         {
-            if (!_selectedGo) { return;}
+            if (!_selectedGo)
+            {
+                return;
+            }
+
             _controller.DestroyGameObject(_selectedGo);
             _selectedGo = null;
             _editType = TransformType.None;
-            
+
             UpdateButtonsInteractable(false);
         }
 
@@ -185,7 +193,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UIGroundEditorBuild.Title.SetText(string.Empty);
             _editType = TransformType.None;
             _selectedGo = null;
-            
+
             UpdateButtonsInteractable(false);
         }
 
