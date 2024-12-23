@@ -183,7 +183,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
         private void Zoom_OnValueChanged(float value)
         {
-            _controller.Camera.orthographicSize = _controller.OrthoSize + value;
+            _controller.mainCamera.Orthographic = _controller.OrthoSize + value;
         }
 
         private void HandleToPavement()

@@ -151,6 +151,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: balloon-stripes
       objectReference: {fileID: 0}
+    - target: {fileID: 3392810977950140677, guid: 26a4977740a36854192cb85999e2fff6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3392810977950176549, guid: 26a4977740a36854192cb85999e2fff6,
         type: 3}
       propertyPath: m_LocalScale.x

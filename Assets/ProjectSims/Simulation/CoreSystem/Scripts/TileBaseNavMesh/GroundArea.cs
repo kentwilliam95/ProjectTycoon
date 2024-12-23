@@ -126,7 +126,7 @@ namespace ProjectSims.Simulation.CoreSystem
 
                 box.transform.localPosition = grounds[i].Position;
                 box.SetIndex(grounds[i].IndexV2);
-                yield return null;
+                if (i % _data.Area.x == 0) { yield return null;}
             }
             
             UILoading.Instance.Hide();

@@ -39,6 +39,8 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UIGroundEditorBuild.OnButtonMoveClicked = EnterMoveMode;
             _controller.UIGroundEditorBuild.OnButtonCheckClicked = HandleButtonCheck_OnClicked;
             _controller.UIGroundEditorBuild.OnButtonDeleteClicked = EnterDeleteMode;
+
+            _controller.UiInputController.OnClick = HandleInput_OnClicked;
             
             _controller.UIGroundEditorBuild.Show();
             _controller.UIGroundEditorBuild.Init();
@@ -61,6 +63,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UIGroundEditorBuild.OnButtonDoneClicked = null;
             _controller.UIGroundEditorBuild.OnItemClicked = null;
             _controller.UiInputController.OnUpdate = null;
+            _controller.UiInputController.OnClick = null;
             _controller.UIGroundEditorBuild.Hide();
             _selectedGo = null;
             _initPoint = Vector3.zero;
@@ -73,8 +76,29 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.ShowLoadingScreenFor(0.5f, "Saving Decorations!");
         }
 
+        private void HandleInput_OnClicked(Vector3 pos)
+        {
+            if (_editType == TransformType.None)
+            {
+                var decor = _controller.GetRaycastMousePos<Decoration>(pos,LayerMask.GetMask("Decoration"));
+                if (decor != null)
+                {
+                    _editType = TransformType.Move;
+                    _selectedGo = decor.gameObject;
+                    _initPoint = _selectedGo.transform.position;
+                    _controller.mainCamera.MoveToTarget(decor.transform.position);
+                    UpdateButtonsInteractable(true);
+                }
+            }
+        }
+
         private void HandleInput_OnUpdate(Vector3 dir)
         {
+            if (_editType == TransformType.None)
+            {
+                _controller.MoveCameraByDragging(dir, _controller.CamSpeed);
+            }
+            
             if (_selectedGo == null) { return; }
 
             if (_editType == TransformType.Move)
@@ -120,8 +144,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
         private Vector3 GetPoint(Vector3 pos)
         {
-            var ray = _controller.Camera.ScreenPointToRay(pos);
-            Debug.DrawRay(ray.origin, ray.direction * 30, Color.cyan);
+            var ray = _controller.mainCamera.ScreenPointToRay(pos);
             int hitCount = Physics.RaycastNonAlloc(ray, _hitResult, 30, _controller.LayerMaskGround);
             if (hitCount > 0)
             {
@@ -162,7 +185,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UIGroundEditorBuild.Title.SetText(string.Empty);
             _editType = TransformType.None;
             _selectedGo = null;
-
+            
             UpdateButtonsInteractable(false);
         }
 

@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
+using Cinemachine;
 using ProjectSims.Simulation.CoreSystem;
 using ProjectSims.Simulation.CoreSystem.Scripts.Interface;
 using ProjectSims.Simulation.GroundEditorStates;
 using ProjectSims.Simulation.Scripts.StateMachine;
 using Simulation.UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Simulation.GroundEditor
@@ -21,8 +23,8 @@ namespace Simulation.GroundEditor
 
         private StateMachine<GroundEditorController> _stateMachine;
         
-        [SerializeField] private Camera _camera;
-        public Camera Camera => _camera;
+        [FormerlySerializedAs("_camera")] [SerializeField] private MainCamera _mainCamera;
+        public MainCamera mainCamera => _mainCamera;
         
         [SerializeField] private GroundArea _groundArea;
         public GroundArea GroundArea => _groundArea;
@@ -90,7 +92,7 @@ namespace Simulation.GroundEditor
             });
             
             _stateMachine.ChangeState(new GroundEditorNormalState());
-            OrthoSize = Camera.orthographicSize;
+            OrthoSize = mainCamera.Orthographic;
         }
         
         public Coroutine BakeNavMesh(Action onComplete = null)
@@ -111,7 +113,7 @@ namespace Simulation.GroundEditor
 
         public void MoveCameraByDragging(Vector3 direction, float speed)
         {
-            var camTr = Camera.transform;
+            var camTr = mainCamera.transform;
             var rightDir = camTr.right * direction.x;
             var upDir = camTr.up * direction.y;
             var comb = rightDir + upDir;
@@ -132,9 +134,9 @@ namespace Simulation.GroundEditor
         public T GetRaycastMousePos<T>(Vector3 pos, LayerMask layerMask)
         {
             T res = default;
-            Ray ray = Camera.ScreenPointToRay(pos);
+            Ray ray = mainCamera.ScreenPointToRay(pos);
             int hitCount = Physics.RaycastNonAlloc(ray, _hitResult, 30, layerMask);
-            var closest = GetRaycastHitClosestToCamera(hitCount, Camera);
+            var closest = GetRaycastHitClosestToCamera(hitCount, mainCamera.Camera);
             if (closest.Item2)
             {
                 var obj = closest.Item1.collider.GetComponentInParent<T>();
