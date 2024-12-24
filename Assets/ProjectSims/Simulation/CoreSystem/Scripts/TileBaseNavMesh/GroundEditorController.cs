@@ -23,7 +23,7 @@ namespace Simulation.GroundEditor
 
         private StateMachine<GroundEditorController> _stateMachine;
         
-        [FormerlySerializedAs("_camera")] [SerializeField] private MainCamera _mainCamera;
+        [SerializeField] private MainCamera _mainCamera;
         public MainCamera mainCamera => _mainCamera;
         
         [SerializeField] private GroundArea _groundArea;
@@ -70,19 +70,20 @@ namespace Simulation.GroundEditor
         {
             UILoading.Instance.Hide();
             _decorationSo.InitDictionary();
-            yield return _groundArea.LoadGround();
-            yield return _groundArea.LoadDecorations();
+            _popupGroundFileEditor.Hide(true);
+            _uiGroundEditorEdit.Hide(true);
+            UIGroundEditorBuild.Hide(true);
+            _menu.Show();
             
-            _popupGroundFileEditor.Hide();
-            _uiGroundEditorEdit.Hide();
-
             _agents = GetComponentsInChildren<IAgent>();
             foreach (var agent in _agents)
             {
                 agent.DisableAgent();
             }
             
-            _menu.Show();
+            yield return _groundArea.LoadGround();
+            yield return _groundArea.LoadDecorations();
+            
             yield return BakeNavMesh(() =>
             {
                 foreach (var agent in _agents)

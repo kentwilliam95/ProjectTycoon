@@ -81,6 +81,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
             var decor = _controller.GetRaycastMousePos<Decoration>(pos, LayerMask.GetMask("Decoration"));
             if (decor != null)
             {
+                decor.Select();
                 _editType = TransformType.Move;
                 _selectedGo = decor.gameObject;
                 _initPoint = _selectedGo.transform.position;
