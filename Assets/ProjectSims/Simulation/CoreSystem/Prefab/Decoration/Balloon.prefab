@@ -81,6 +81,12 @@ MeshFilter:
     type: 3}
   m_PrefabInstance: {fileID: 4471117519833576920}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &4532983753531590950 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 64454492596911358, guid: 9feb319cc4eb0df4a95cff29c78f650b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4471117519833576920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6244187474612204722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,8 +152,43 @@ PrefabInstance:
       objectReference: {fileID: 4501810616742211842}
     - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
         type: 3}
+      propertyPath: Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: de386c18c36adef4a96b41375c36c3ba, type: 3}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
       propertyPath: Name
       value: Balloon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _length
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _collider
+      value: 
+      objectReference: {fileID: 4532983753531590950}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _extends.x
+      value: 1.6031646
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _extends.y
+      value: 2.2430227
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _extends.z
+      value: 1.6031647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: showIllustration
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2796079479059880491, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
         type: 3}

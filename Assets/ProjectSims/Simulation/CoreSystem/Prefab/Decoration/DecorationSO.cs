@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 namespace Simulation.GroundEditor
@@ -11,9 +13,9 @@ namespace Simulation.GroundEditor
         public struct AssetDetail
         {
             public Sprite Sprite;
-            public GameObject Template;   
+            public GameObject Template;
         }
-        
+
         public AssetDetail[] Asset;
 
         private Dictionary<String, GameObject> _dictAsset;
@@ -37,5 +39,21 @@ namespace Simulation.GroundEditor
 
             return _dictAsset[assetName];
         }
-    }   
+
+#if UNITY_EDITOR
+        [Button("Setup")]
+        public void Setup()
+        {
+            string[] files = Directory.GetFiles("Assets/ProjectSims/Simulation/CoreSystem/Prefab/Decoration/", "*.prefab", SearchOption.TopDirectoryOnly);
+            
+            Asset = new AssetDetail[files.Length];
+            for (int i = 0; i < files.Length; i++)
+            {
+                var decor = AssetDatabase.LoadAssetAtPath<Decoration>(files[i]);
+                Asset[i].Template = decor.gameObject;
+
+            }
+        }
+#endif
+    }
 }

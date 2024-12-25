@@ -79,3 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
+  showIllustration: 0
+  _extends: {x: 0, y: 0, z: 0}
+  _length: 0
+  Mesh: {fileID: 0}
