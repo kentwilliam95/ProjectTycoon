@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Simulation.GroundEditor
 {
-    public class UIInputController : UiBase, IDragHandler,IPointerDownHandler,IPointerUpHandler
+    public class UIInputController : UiBase, IDragHandler,IPointerDownHandler,IPointerUpHandler,IScrollHandler
     {
         [SerializeField] private float _radius = 150f;
         [SerializeField] private float _clickDelay = 0.3f;
@@ -24,6 +24,7 @@ namespace Simulation.GroundEditor
         public Action<Vector3> OnDragging;
         public Action<Vector3> OnClick;
         public Action<Vector3> OnUpdate;
+        public Action<Vector2> OnScrolling;
         public Action OnPointerRelease;
 
 
@@ -60,6 +61,7 @@ namespace Simulation.GroundEditor
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            Debug.Log(eventData.pointerId);
             _timeClickTracker = Time.time;
             _startPos = eventData.position;
             _inner.transform.position = eventData.position;
@@ -81,6 +83,13 @@ namespace Simulation.GroundEditor
             _isPointerDown = false;
             
             OnPointerRelease?.Invoke();
+        }
+
+        public void OnScroll(PointerEventData eventData)
+        {
+            Debug.Log("Scrolling!");
+            Debug.Log(eventData.scrollDelta);
+            OnScrolling?.Invoke(eventData.scrollDelta);
         }
     }   
 }
