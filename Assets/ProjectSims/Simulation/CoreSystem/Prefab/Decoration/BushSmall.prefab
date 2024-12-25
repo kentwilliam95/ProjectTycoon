@@ -105,6 +105,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2317519258143843216, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317519258143843216, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
       propertyPath: m_Center.x
       value: 0.004109159
       objectReference: {fileID: 0}
@@ -155,6 +160,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2519824592938964320, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519824592938964320, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
       propertyPath: _meshFilter
       value: 
       objectReference: {fileID: 755772710689667191}
@@ -172,7 +182,7 @@ PrefabInstance:
     - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
         type: 3}
       propertyPath: _length
-      value: 2
+      value: 0.3019817
       objectReference: {fileID: 0}
     - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
         type: 3}
