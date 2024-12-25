@@ -7,6 +7,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace ProjectSims.Simulation.CoreSystem
@@ -154,9 +155,11 @@ namespace ProjectSims.Simulation.CoreSystem
             return Instantiate(go, position, quaternion.Euler(rotation), TrDecoration);
         }
         
-        public GameObject SpawnDecoration(GameObject go, Vector3 position, Quaternion quartenion)
+        public T SpawnDecoration<T>(GameObject go, Vector3 position, Quaternion quartenion) where T : UnityEngine.Object
         {
-            return Instantiate(go, position, quartenion, TrDecoration);
+            var instGo = Instantiate(go, position, quartenion, TrDecoration);
+            
+            return instGo.GetComponentInParent<T>();;
         }
 
         public void SwapToPavementBox(GroundBox go, GroundType groundType)

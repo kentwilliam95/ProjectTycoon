@@ -121,7 +121,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
                 ? "Selected could be converted to grass or pavement, see Control UI"
                 : "select ground to continue.");
 
-            GroundBox box = _controller.GetRaycastMousePos<GroundBox>(Input.mousePosition, _controller.LayerMaskGround);
+            GroundBox box = _controller.GetRaycastMousePos<GroundBox>(Input.mousePosition, GroundEditorController.LayerMaskGround);
             if (!box)
             {
                 return;

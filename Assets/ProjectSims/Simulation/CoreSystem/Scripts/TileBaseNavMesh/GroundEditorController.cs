@@ -14,8 +14,8 @@ namespace Simulation.GroundEditor
 {
     public class GroundEditorController : MonoBehaviour
     {
-        private LayerMask _layerMaskGround;
-        public LayerMask LayerMaskGround => _layerMaskGround;
+        public static LayerMask LayerMaskGround;
+        public static LayerMask LayerMaskDecoration;
         
         private RaycastHit[] _hitResult;
         private Coroutine _coroutineBakeMesh;
@@ -62,7 +62,9 @@ namespace Simulation.GroundEditor
         {
             _stateMachine = new StateMachine<GroundEditorController>(this);
             
-            _layerMaskGround = LayerMask.GetMask("Ground");
+            LayerMaskGround = LayerMask.GetMask("Ground");
+            LayerMaskDecoration = LayerMask.GetMask("Decoration");
+            
             _hitResult = new RaycastHit[32];
         }
         

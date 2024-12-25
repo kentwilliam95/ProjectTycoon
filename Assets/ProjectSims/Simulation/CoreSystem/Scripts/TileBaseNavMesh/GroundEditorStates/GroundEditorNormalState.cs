@@ -55,7 +55,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
         private void Input_OnClick(Vector3 mousePos)
         {
-            GroundBox box = _controller.GetRaycastMousePos<GroundBox>(mousePos,_controller.LayerMaskGround);
+            GroundBox box = _controller.GetRaycastMousePos<GroundBox>(mousePos,GroundEditorController.LayerMaskGround);
             _controller.MoveAgentsTo(box);
         }
     }

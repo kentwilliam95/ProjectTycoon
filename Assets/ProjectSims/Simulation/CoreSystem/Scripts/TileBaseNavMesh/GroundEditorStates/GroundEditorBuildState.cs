@@ -20,7 +20,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
         private GroundEditorController _controller;
         private RaycastHit[] _hitResult = new RaycastHit[8];
         private Vector3 _initPoint;
-        private GameObject _selectedGo;
+        private Decoration _selectedGo;
 
         public void OnEnter(GroundEditorController t)
         {
@@ -50,6 +50,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
             _selectedGo = null;
             _initPoint = Vector3.zero;
+            _controller.UIGroundEditorBuild.Title.SetText("Select or build object!");
         }
 
         public void OnUpdate(GroundEditorController t) { }
@@ -78,12 +79,18 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
         private void HandleInput_OnClicked(Vector3 pos)
         {
+            if (_selectedGo != null)
+            {
+                bool isValid = CheckIfDecorCollide(_selectedGo, _selectedGo.transform.position);
+                if (isValid) { return; }
+            }
+
             var decor = _controller.GetRaycastMousePos<Decoration>(pos, LayerMask.GetMask("Decoration"));
             if (decor != null)
             {
                 decor.Select();
-                _editType = TransformType.Move;
-                _selectedGo = decor.gameObject;
+                EnterMoveMode();
+                _selectedGo = decor;
                 _initPoint = _selectedGo.transform.position;
                 _controller.mainCamera.MoveToTarget(decor.transform.position);
                 UpdateButtonsInteractable(true);
@@ -104,19 +111,19 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
             if (_editType == TransformType.Move)
             {
+                _controller.UIGroundEditorBuild.Title.SetText("Drag Selected object with your finger");
                 dir.z = dir.y;
                 dir.y = 0;
 
                 var angleaxis = Quaternion.AngleAxis(45, Vector3.up) * dir;
                 var nextPos = _initPoint + angleaxis * Time.deltaTime * _controller.MoveObjectSpeed;
-                if (!_controller.GroundArea.IsPointInsideBoundary(nextPos))
-                {
-                    return;
-                }
-
+                
+                if (!_controller.GroundArea.IsPointInsideBoundary(nextPos)) { return; }
+                UpdateUIButtonDroppableObject(nextPos);
+                
                 _initPoint += angleaxis * Time.deltaTime * _controller.MoveObjectSpeed;
                 _selectedGo.transform.position = _initPoint;
-
+                
                 dir.y = dir.z;
                 dir.z = 0;
                 _controller.MoveCameraByDragging(dir, _controller.MoveObjectSpeed);
@@ -132,7 +139,6 @@ namespace ProjectSims.Simulation.GroundEditorStates
             }
         }
 
-
         private void Handle_ItemOnClicked(DecorationSO.AssetDetail so)
         {
             if (_selectedGo != null)
@@ -144,13 +150,16 @@ namespace ProjectSims.Simulation.GroundEditorStates
             var point = GetPoint(_controller.UiInputController.Center);
             point.y = 0.5f;
             _initPoint = point;
-            _selectedGo = _controller.GroundArea.SpawnDecoration(so.Template, point, quaternion.identity);
+            _selectedGo = _controller.GroundArea.SpawnDecoration<Decoration>(so.Template, point, quaternion.identity);
+            _selectedGo.InitSpawnAnimation();
+            
+            UpdateUIButtonDroppableObject(point);
         }
 
         private Vector3 GetPoint(Vector3 pos)
         {
             var ray = _controller.mainCamera.ScreenPointToRay(pos);
-            int hitCount = Physics.RaycastNonAlloc(ray, _hitResult, 30, _controller.LayerMaskGround);
+            int hitCount = Physics.RaycastNonAlloc(ray, _hitResult, 30, GroundEditorController.LayerMaskGround);
             if (hitCount > 0)
             {
                 return _hitResult[0].point;
@@ -161,7 +170,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
         private void EnterRotateMode()
         {
-            _controller.UIGroundEditorBuild.Title.SetText("Rotate Mode");
+            _controller.UIGroundEditorBuild.Title.SetText("Rotate the object by dragging your finger!");
             _editType = TransformType.Rotate;
 
             UpdateButtonsInteractable(true);
@@ -169,7 +178,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
         private void EnterMoveMode()
         {
-            _controller.UIGroundEditorBuild.Title.SetText("Move Mode");
+            _controller.UIGroundEditorBuild.Title.SetText("Move current object by dragging your finger!");
             _editType = TransformType.Move;
 
             UpdateButtonsInteractable(true);
@@ -182,16 +191,17 @@ namespace ProjectSims.Simulation.GroundEditorStates
                 return;
             }
 
-            _controller.DestroyGameObject(_selectedGo);
+            _controller.DestroyGameObject(_selectedGo.gameObject);
             _selectedGo = null;
             _editType = TransformType.None;
 
             UpdateButtonsInteractable(false);
+            _controller.UIGroundEditorBuild.Title.SetText("Object deleted!");
         }
 
         private void HandleButtonCheck_OnClicked()
         {
-            _controller.UIGroundEditorBuild.Title.SetText(string.Empty);
+            _controller.UIGroundEditorBuild.Title.SetText("Select or build object!");
             _editType = TransformType.None;
             _selectedGo = null;
 
@@ -205,6 +215,33 @@ namespace ProjectSims.Simulation.GroundEditorStates
             ui.ButtonDelete.interactable = isInteractable;
             ui.ButtonMove.interactable = isInteractable;
             ui.ButtonRotate.interactable = isInteractable;
+        }
+
+        private bool CheckIfDecorCollide(Decoration target, Vector3 position)
+        {
+            int hitCount = Physics.BoxCastNonAlloc(position, target._extends, Vector3.down, _hitResult, quaternion.identity, target._length, GroundEditorController.LayerMaskDecoration);
+            for (int i = 0; i < hitCount; i++)
+            {
+                var decor = _hitResult[i].collider.GetComponentInParent<Decoration>();
+                if (decor != null && decor != target)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private void UpdateUIButtonDroppableObject(Vector3 position)
+        {
+            bool isCollide = CheckIfDecorCollide(_selectedGo, position);
+            _controller.UIGroundEditorBuild.ButtonCheck.interactable = !isCollide;
+            _controller.UIGroundEditorBuild.ButtonDone.interactable = !isCollide;
+            
+            if (isCollide)
+            {
+                _controller.UIGroundEditorBuild.Title.SetText("Unable to drop here!");   
+            }
         }
     }
 }
