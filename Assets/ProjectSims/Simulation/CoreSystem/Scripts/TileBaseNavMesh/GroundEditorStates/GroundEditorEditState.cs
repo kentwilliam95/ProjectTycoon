@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using ProjectSims.Simulation.CoreSystem;
 using ProjectSims.Simulation.Scripts.StateMachine;
@@ -18,7 +19,6 @@ namespace ProjectSims.Simulation.GroundEditorStates
         private GroundEditorController _controller;
         private List<GroundBox> _multipleSelectGroundBox;
         private SelectionMode _selectionMode;
-        private float _orthoSize;
         private int _bakeCount;
         private int _editCount;
 
@@ -37,7 +37,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
             t.UIGroundEditorEdit.EnableMenu();
 
             t.UIGroundEditorEdit.OnZoomChange = Zoom_OnValueChanged;
-            _orthoSize = t.Camera.orthographicSize;
+            
             _controller = t;
 
             t.UIGroundEditorEdit.EnableSelection();
@@ -50,6 +50,10 @@ namespace ProjectSims.Simulation.GroundEditorStates
             t.UIGroundEditorEdit.OnButtonGrassClicked = HandleChangeToGrass;
             t.UIGroundEditorEdit.OnButtonPavementClicked = HandleToPavement;
             t.UIGroundEditorEdit.OnButtonLoadClicked = FileEditor_OnLoadClicked;
+            
+            _controller.UiInputController.OnScrolling = Input_OnScrolled;
+            _controller.UiInputController.OnPinch = Input_OnPinched;
+            _controller.UiInputController.OnPointerRelease = Input_OnRelease;
         }
 
         private void HandleButtonNewClicked() { }
@@ -88,7 +92,11 @@ namespace ProjectSims.Simulation.GroundEditorStates
             t.ButtonNewFileEditor.onClick.RemoveListener(OpenFileEditor);
             t.PopupGroundFileEditor.OnButtonSaveClicked = null;
             t.UIGroundEditorEdit.OnZoomChange = null;
-
+            
+            _controller.UiInputController.OnScrolling = null;
+            _controller.UiInputController.OnPinch = null;
+            _controller.UiInputController.OnPointerRelease = null;
+            
             t.UIGroundEditorEdit.DisableControls();
             t.UIGroundEditorEdit.EnableMenu();
             t.UIGroundEditorEdit.EnableSelection();
@@ -121,7 +129,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
                 ? "Selected could be converted to grass or pavement, see Control UI"
                 : "select ground to continue.");
 
-            GroundBox box = _controller.GetRaycastMousePos<GroundBox>(Input.mousePosition, _controller.LayerMaskGround);
+            GroundBox box = _controller.GetRaycastMousePos<GroundBox>(Input.mousePosition, GroundEditorController.LayerMaskGround);
             if (!box)
             {
                 return;
@@ -183,7 +191,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
         private void Zoom_OnValueChanged(float value)
         {
-            _controller.Camera.orthographicSize = _orthoSize + value;
+            _controller.mainCamera.Orthographic = _controller.OrthoSize + value;
         }
 
         private void HandleToPavement()
@@ -255,21 +263,42 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
         private void FileEditor_OnLoadClicked()
         {
-            _controller.GroundArea.LoadGround();
+            _controller.StartCoroutine(GenerateAndRebakeNavMesh());
+        }
+
+        private IEnumerator GenerateAndRebakeNavMesh()
+        {
+            yield return _controller.GroundArea.LoadGround();
+            yield return _controller.BakeNavMesh();
         }
 
         private void FileEditor_OnSaveClicked(int x, int y)
         {
-            x = Mathf.Min(x, 10);
-            y = Mathf.Min(y, 10);
+            x = Mathf.Max(x, 10);
+            y = Mathf.Max(y, 10);
 
             _controller.GroundArea.GenerateDefaultGround(x, y);
-            _controller.GroundArea.LoadGround();
+            _controller.StartCoroutine(GenerateAndRebakeNavMesh());
         }
 
         private void OpenFileEditor()
         {
             _controller.PopupGroundFileEditor.Show();
+        }
+        
+        private void Input_OnScrolled(Vector2 delta)
+        {
+            _controller.SetCameraZoom(delta.y);
+        }
+
+        private void Input_OnPinched(float val)
+        {
+            _controller.SetCameraZoomByPinch(val);
+        }
+        
+        private void Input_OnRelease()
+        {
+            _controller.SetZoomLevel();
         }
     }
 }

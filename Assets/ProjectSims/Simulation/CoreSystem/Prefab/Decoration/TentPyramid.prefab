@@ -63,6 +63,41 @@ PrefabInstance:
       propertyPath: _meshFilter
       value: 
       objectReference: {fileID: 8655170239759015105}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: Mesh
+      value: 
+      objectReference: {fileID: 4300002, guid: 0c3c30ccf87d4d545b461f51bb707679, type: 3}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: Name
+      value: TentPyramid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _length
+      value: 1.203532
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _extends.x
+      value: 1.4461403
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _extends.y
+      value: 1.203532
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _extends.z
+      value: 1.4461406
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: showIllustration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2796079479059880491, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
         type: 3}
       propertyPath: m_Name

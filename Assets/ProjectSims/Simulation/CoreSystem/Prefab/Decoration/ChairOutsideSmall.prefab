@@ -63,6 +63,42 @@ PrefabInstance:
       propertyPath: _meshFilter
       value: 
       objectReference: {fileID: 808489737658776210}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: Mesh
+      value: 
+      objectReference: {fileID: 2990790799751967537, guid: c1a7a33798a187242ace802e3dcff398,
+        type: 3}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: Name
+      value: ChairOutsideSmall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _length
+      value: 0.3324141
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _extends.x
+      value: 0.30870214
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _extends.y
+      value: 0.6648282
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _extends.z
+      value: 0.3313197
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: showIllustration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2796079479059880491, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
         type: 3}
       propertyPath: m_Name

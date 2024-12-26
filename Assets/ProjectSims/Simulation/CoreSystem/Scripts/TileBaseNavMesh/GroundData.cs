@@ -19,6 +19,7 @@ namespace Simulation.GroundEditor
         {
             public Vector2Int Area;
             public GroundDetail[] Grounds;
+            public DecorationDetail[] Decorations;
         }
 
         [System.Serializable]
@@ -27,14 +28,35 @@ namespace Simulation.GroundEditor
             public GroundArea.GroundType GroundType;
             public Vector2Int IndexV2;
             public int Index;
-
-            public Vector3 LocalPosition;
+            
+            public TransformData TransformData;
+            public Vector3 Position => TransformData.Position;
+        }
+        
+        [System.Serializable]
+        public struct DecorationDetail
+        {
+            public string Name;
+            public TransformData TransformData;
+        }
+        
+        [System.Serializable]
+        public struct TransformData
+        {
+            public Vector3 Position;
             public Vector3 Rotation;
         }
 
         public SaveData _save;
         public Vector2Int Area => _save.Area;
 
+        private Dictionary<String, GameObject> _dictAsset;
+
+        public void InitDictionary()
+        {
+            _dictAsset = new Dictionary<string, GameObject>();
+        }
+        
         public void Init()
         {
             var str = PlayerPrefs.GetString(SAVEKEY);
@@ -46,6 +68,8 @@ namespace Simulation.GroundEditor
             {
                 SetupNewGround(10, 10);
             }
+            
+            
         }
 
         public void Save()
@@ -75,8 +99,8 @@ namespace Simulation.GroundEditor
             var groundDetail = _save.Grounds[indexV1];
             groundDetail.GroundType = change.GroundType;
             groundDetail.IndexV2 = change.Index;
-            groundDetail.LocalPosition = change.transform.localPosition;
-            groundDetail.Rotation = change.transform.rotation.eulerAngles;
+            groundDetail.TransformData.Position = change.transform.localPosition;
+            groundDetail.TransformData.Rotation = change.transform.rotation.eulerAngles;
 
             _save.Grounds[indexV1] = groundDetail;
 
@@ -110,7 +134,7 @@ namespace Simulation.GroundEditor
         {
             var indexV1 = index.y * Area.x + index.x;
             _save.Grounds[indexV1].GroundType = groundType;
-            _save.Grounds[indexV1].LocalPosition = localPosition;
+            _save.Grounds[indexV1].TransformData.Position = localPosition;
             _save.Grounds[indexV1].IndexV2 = index;
             _save.Grounds[indexV1].Index = indexV1;
         }

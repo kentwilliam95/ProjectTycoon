@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Asset:
   - Sprite: {fileID: 0}
-    Template: {fileID: 8155153619289191161, guid: 09ed6a396c2eb4aee9ea3bbd9eba4e71,
+    Template: {fileID: 8155153619289191161, guid: acd00c52292a04d529c9da8cccb67733,
       type: 3}
   - Sprite: {fileID: 0}
     Template: {fileID: 8100396917347561113, guid: bca2fd08b31c547ea8f921bce8dda807,
       type: 3}
   - Sprite: {fileID: 0}
-    Template: {fileID: 5522723406794375319, guid: 0027420965077492e9f5c11e0b48e5c8,
+    Template: {fileID: 8155153619289191161, guid: 22b03c22445ef431685981a0749f4716,
       type: 3}

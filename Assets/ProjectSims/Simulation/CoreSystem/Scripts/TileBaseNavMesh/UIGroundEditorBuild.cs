@@ -15,6 +15,8 @@ namespace Simulation.GroundEditor
         [field: SerializeField] public TextMeshProUGUI Title { get; private set; }
         
         [SerializeField] private Button _buttonDone;
+        public Button ButtonDone => _buttonDone;
+        
         [SerializeField] private DecorationSO _decorationSo;
         [SerializeField] private RectTransform _itemContainer;
         [SerializeField] private UIBuildItemTemplate _template;

@@ -3,9 +3,11 @@ using System.Collections;
 using Simulation.GroundEditor;
 using Simulation.UI;
 using Unity.AI.Navigation;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace ProjectSims.Simulation.CoreSystem
@@ -25,6 +27,11 @@ namespace ProjectSims.Simulation.CoreSystem
         [SerializeField] private GroundBox _pavementBoxTemplate;
         [SerializeField] private NavMeshSurface _navMeshSurface;
 
+        [SerializeField] private Transform _groundContainer;
+        
+        [Header("Decoration Settings")]
+        [SerializeField] private DecorationSO _decorationSo;
+        [field: SerializeField] public Transform TrDecoration { get; private set; }
         private void Awake()
         {
             Instance = this;
@@ -72,20 +79,37 @@ namespace ProjectSims.Simulation.CoreSystem
             _data.Save();
         }
 
-        public void LoadGround()
+        public void SaveDecorations(Decoration[] decor)
         {
-            StartCoroutine(SpawnGround());
+            _data._save.Decorations = new GroundData.DecorationDetail[decor.Length];
+            for (int i = 0; i < decor.Length; i++)
+            {
+                GroundData.DecorationDetail d = new GroundData.DecorationDetail();
+                d.Name = decor[i].Name;
+                d.TransformData.Position = decor[i].transform.position;
+                d.TransformData.Rotation = decor[i].transform.rotation.eulerAngles;
+                _data._save.Decorations[i] = d;
+            }
+        }
+
+        public Coroutine LoadGround()
+        {
+            return StartCoroutine(SpawnGround());
+        }
+
+        public Coroutine LoadDecorations()
+        {
+            return StartCoroutine(SpawnDecorations());
         }
 
         private IEnumerator SpawnGround()
         {
             UILoading.Instance.Show();
-            for (int i = transform.childCount - 1; i >= 0; i--)
+            for (int i = _groundContainer.childCount - 1; i >= 0; i--)
             {
-                Destroy(transform.GetChild(i).gameObject);
+                Destroy(_groundContainer.GetChild(i).gameObject);
             }
-
-            yield return null;
+            
             var grounds = _data._save.Grounds;
             for (int i = 0; i < grounds.Length; i++)
             {
@@ -93,20 +117,49 @@ namespace ProjectSims.Simulation.CoreSystem
                 switch (grounds[i].GroundType)
                 {
                     case GroundType.Grass:
-                        box = Instantiate(_grassBoxTemplate, transform);
+                        box = Instantiate(_grassBoxTemplate, _groundContainer);
                         break;
 
                     case GroundType.Pavement:
-                        box = Instantiate(_pavementBoxTemplate, transform);
+                        box = Instantiate(_pavementBoxTemplate, _groundContainer);
                         break;
                 }
 
-                box.transform.localPosition = grounds[i].LocalPosition;
+                box.transform.localPosition = grounds[i].Position;
                 box.SetIndex(grounds[i].IndexV2);
+                if (i % _data.Area.x == 0) { yield return null;}
             }
-
-            yield return new WaitForSeconds(0.5f);
+            
             UILoading.Instance.Hide();
+        }
+
+        private IEnumerator SpawnDecorations()
+        {
+            UILoading.Instance.Show("Generating Items.");
+            var decorData = _data._save.Decorations;
+            
+            for (int i = 0; i < decorData.Length; i++)
+            {
+                var d = decorData[i];
+                var go = _decorationSo.GetAsset(d.Name);
+                if (!go) { continue;}
+
+                Instantiate(go, d.TransformData.Position, Quaternion.Euler(d.TransformData.Rotation), TrDecoration);
+                yield return null;
+            }
+            UILoading.Instance.Hide();
+        }
+
+        public GameObject SpawnDecoration(GameObject go, Vector3 position, Vector3 rotation)
+        {
+            return Instantiate(go, position, quaternion.Euler(rotation), TrDecoration);
+        }
+        
+        public T SpawnDecoration<T>(GameObject go, Vector3 position, Quaternion quartenion) where T : UnityEngine.Object
+        {
+            var instGo = Instantiate(go, position, quartenion, TrDecoration);
+            
+            return instGo.GetComponentInParent<T>();;
         }
 
         public void SwapToPavementBox(GroundBox go, GroundType groundType)
@@ -115,11 +168,11 @@ namespace ProjectSims.Simulation.CoreSystem
             switch (groundType)
             {
                 case GroundType.Grass:
-                    spawned = Instantiate(_grassBoxTemplate, transform);
+                    spawned = Instantiate(_grassBoxTemplate, _groundContainer);
                     break;
 
                 case GroundType.Pavement:
-                    spawned = Instantiate(_pavementBoxTemplate, transform);
+                    spawned = Instantiate(_pavementBoxTemplate, _groundContainer);
                     break;
             }
 

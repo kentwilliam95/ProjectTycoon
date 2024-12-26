@@ -7,6 +7,7 @@ namespace ProjectSims.Simulation.GroundEditorStates
     public class GroundEditorNormalState:IState<GroundEditorController>
     {
         private GroundEditorController _controller;
+        
         public void OnEnter(GroundEditorController t)
         {
             _controller = t;
@@ -15,9 +16,13 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UIGroundEditorEdit.Hide();
             _controller.UIGroundEditorBuild.Hide();
             
+            _controller.UiInputController.OnClick = Input_OnClick;
             _controller.UiInputController.OnUpdate = Input_OnDragging;
             
-            _controller.UiInputController.OnClick = Input_OnClick;
+            _controller.UiInputController.OnScrolling = Input_OnScrolled;
+            _controller.UiInputController.OnPinch = Input_OnPinched;
+            _controller.UiInputController.OnPointerRelease = Input_OnRelease;
+            
             t.Menu.ButtonEditModeOnClicked = EnterEditMode;
             t.Menu.ButtonBuildModeOnClicked = EnterBuildMode;
         }
@@ -37,6 +42,10 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UiInputController.OnClick = null;
             _controller.UiInputController.OnUpdate = null;
             
+            _controller.UiInputController.OnScrolling = null;
+            _controller.UiInputController.OnPinch = null;
+            _controller.UiInputController.OnPointerRelease = null;
+            
         }
         private void EnterEditMode()
         {
@@ -53,9 +62,24 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.MoveCameraByDragging(direction, _controller.CamSpeed);
         }
 
+        private void Input_OnScrolled(Vector2 delta)
+        {
+            _controller.SetCameraZoom(delta.y);
+        }
+
+        private void Input_OnPinched(float val)
+        {
+            _controller.SetCameraZoomByPinch(val);
+        }
+        
+        private void Input_OnRelease()
+        {
+            _controller.SetZoomLevel();
+        }
+
         private void Input_OnClick(Vector3 mousePos)
         {
-            GroundBox box = _controller.GetRaycastMousePos<GroundBox>(mousePos,_controller.LayerMaskGround);
+            GroundBox box = _controller.GetRaycastMousePos<GroundBox>(mousePos,GroundEditorController.LayerMaskGround);
             _controller.MoveAgentsTo(box);
         }
     }

@@ -81,8 +81,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7786588384432511606, guid: 07fb332e7d10b3b40995044aacc33790,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4863683475765351524}
   m_SourcePrefab: {fileID: 100100000, guid: 07fb332e7d10b3b40995044aacc33790, type: 3}
+--- !u!1 &6033611088213844383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7786588384432511606, guid: 07fb332e7d10b3b40995044aacc33790,
+    type: 3}
+  m_PrefabInstance: {fileID: 4590352951629872105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &4863683475765351524
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6033611088213844383}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 82ba45c3f7b9d7e4cb4c271e944ffed4, type: 3}
 --- !u!4 &6033611088214343103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7786588384432997974, guid: 07fb332e7d10b3b40995044aacc33790,
@@ -158,6 +190,31 @@ PrefabInstance:
       propertyPath: _meshFilter
       value: 
       objectReference: {fileID: 6033611088215145887}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: Name
+      value: AloeVera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _extends.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _extends.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: _extends.z
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708363598019187384, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
+        type: 3}
+      propertyPath: showIllustration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2796079479059880491, guid: 0f07aee7ce0024c3f89cff9bf67c24a7,
         type: 3}
       propertyPath: m_Name
