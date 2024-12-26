@@ -50,6 +50,10 @@ namespace ProjectSims.Simulation.GroundEditorStates
             t.UIGroundEditorEdit.OnButtonGrassClicked = HandleChangeToGrass;
             t.UIGroundEditorEdit.OnButtonPavementClicked = HandleToPavement;
             t.UIGroundEditorEdit.OnButtonLoadClicked = FileEditor_OnLoadClicked;
+            
+            _controller.UiInputController.OnScrolling = Input_OnScrolled;
+            _controller.UiInputController.OnPinch = Input_OnPinched;
+            _controller.UiInputController.OnPointerRelease = Input_OnRelease;
         }
 
         private void HandleButtonNewClicked() { }
@@ -88,7 +92,11 @@ namespace ProjectSims.Simulation.GroundEditorStates
             t.ButtonNewFileEditor.onClick.RemoveListener(OpenFileEditor);
             t.PopupGroundFileEditor.OnButtonSaveClicked = null;
             t.UIGroundEditorEdit.OnZoomChange = null;
-
+            
+            _controller.UiInputController.OnScrolling = null;
+            _controller.UiInputController.OnPinch = null;
+            _controller.UiInputController.OnPointerRelease = null;
+            
             t.UIGroundEditorEdit.DisableControls();
             t.UIGroundEditorEdit.EnableMenu();
             t.UIGroundEditorEdit.EnableSelection();
@@ -276,6 +284,21 @@ namespace ProjectSims.Simulation.GroundEditorStates
         private void OpenFileEditor()
         {
             _controller.PopupGroundFileEditor.Show();
+        }
+        
+        private void Input_OnScrolled(Vector2 delta)
+        {
+            _controller.SetCameraZoom(delta.y);
+        }
+
+        private void Input_OnPinched(float val)
+        {
+            _controller.SetCameraZoomByPinch(val);
+        }
+        
+        private void Input_OnRelease()
+        {
+            _controller.SetZoomLevel();
         }
     }
 }

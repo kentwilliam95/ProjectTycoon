@@ -39,6 +39,10 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UIGroundEditorBuild.OnButtonMoveClicked = EnterMoveMode;
             _controller.UIGroundEditorBuild.OnButtonCheckClicked = HandleButtonCheck_OnClicked;
             _controller.UIGroundEditorBuild.OnButtonDeleteClicked = EnterDeleteMode;
+            
+            _controller.UiInputController.OnScrolling = Input_OnScrolled;
+            _controller.UiInputController.OnPinch = Input_OnPinched;
+            _controller.UiInputController.OnPointerRelease = Input_OnRelease;
 
             _controller.UiInputController.OnClick = HandleInput_OnClicked;
 
@@ -65,6 +69,11 @@ namespace ProjectSims.Simulation.GroundEditorStates
             _controller.UIGroundEditorBuild.OnItemClicked = null;
             _controller.UiInputController.OnUpdate = null;
             _controller.UiInputController.OnClick = null;
+            
+            _controller.UiInputController.OnScrolling = null;
+            _controller.UiInputController.OnPinch = null;
+            _controller.UiInputController.OnPointerRelease = null;
+
             _controller.UIGroundEditorBuild.Hide();
             _selectedGo = null;
             _initPoint = Vector3.zero;
@@ -242,6 +251,21 @@ namespace ProjectSims.Simulation.GroundEditorStates
             {
                 _controller.UIGroundEditorBuild.Title.SetText("Unable to drop here!");   
             }
+        }
+        
+        private void Input_OnScrolled(Vector2 delta)
+        {
+            _controller.SetCameraZoom(delta.y);
+        }
+
+        private void Input_OnPinched(float val)
+        {
+            _controller.SetCameraZoomByPinch(val);
+        }
+        
+        private void Input_OnRelease()
+        {
+            _controller.SetZoomLevel();
         }
     }
 }

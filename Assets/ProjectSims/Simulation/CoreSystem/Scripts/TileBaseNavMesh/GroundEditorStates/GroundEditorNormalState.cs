@@ -7,7 +7,6 @@ namespace ProjectSims.Simulation.GroundEditorStates
     public class GroundEditorNormalState:IState<GroundEditorController>
     {
         private GroundEditorController _controller;
-        private float _zoomLevel = 6.5f;
         
         public void OnEnter(GroundEditorController t)
         {
@@ -26,8 +25,6 @@ namespace ProjectSims.Simulation.GroundEditorStates
             
             t.Menu.ButtonEditModeOnClicked = EnterEditMode;
             t.Menu.ButtonBuildModeOnClicked = EnterBuildMode;
-            
-            _zoomLevel = _controller.Camera.orthographicSize;
         }
 
         public void OnUpdate(GroundEditorController t)
@@ -67,32 +64,23 @@ namespace ProjectSims.Simulation.GroundEditorStates
 
         private void Input_OnScrolled(Vector2 delta)
         {
-            float yaxis = delta.y;
-            yaxis = yaxis * 8f;
-            
-            var cam = _controller.Camera;
-            var size = cam.orthographicSize;
-
-            var zoom = size + yaxis * Time.deltaTime;
-            zoom = Mathf.Clamp(zoom, 2, 10);
-            cam.orthographicSize = zoom;
+            _controller.SetCameraZoom(delta.y);
         }
 
         private void Input_OnPinched(float val)
         {
-            var cam = _controller.Camera;
-            cam.orthographicSize = Mathf.Clamp( _zoomLevel - val,2, 10);
+            _controller.SetCameraZoomByPinch(val);
+        }
+        
+        private void Input_OnRelease()
+        {
+            _controller.SetZoomLevel();
         }
 
         private void Input_OnClick(Vector3 mousePos)
         {
             GroundBox box = _controller.GetRaycastMousePos<GroundBox>(mousePos,GroundEditorController.LayerMaskGround);
             _controller.MoveAgentsTo(box);
-        }
-
-        private void Input_OnRelease()
-        {
-            _zoomLevel = _controller.Camera.orthographicSize;
         }
     }
 }

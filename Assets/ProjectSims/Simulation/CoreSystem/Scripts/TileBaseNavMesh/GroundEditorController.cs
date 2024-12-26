@@ -22,6 +22,7 @@ namespace Simulation.GroundEditor
         private IAgent[] _agents;
 
         private StateMachine<GroundEditorController> _stateMachine;
+        private float _zoomLevel = 6.5f;
         
         [SerializeField] private MainCamera _mainCamera;
         public MainCamera mainCamera => _mainCamera;
@@ -122,6 +123,27 @@ namespace Simulation.GroundEditor
             var upDir = camTr.up * direction.y;
             var comb = rightDir + upDir;
             camTr.transform.position += comb * (Time.deltaTime * speed);
+        }
+
+        public void SetCameraZoom(float yaxis)
+        {
+            yaxis = yaxis * 8f;
+            var size = Camera.orthographicSize;
+
+            var zoom = size + yaxis * Time.deltaTime;
+            zoom = Mathf.Clamp(zoom, 2, 10);
+            Camera.orthographicSize = zoom;
+            OrthoSize = zoom;
+        }
+
+        public void SetCameraZoomByPinch(float val)
+        {
+            Camera.orthographicSize = Mathf.Clamp( OrthoSize - val,2, 10);
+        }
+
+        public void SetZoomLevel()
+        {
+            OrthoSize = Camera.orthographicSize;
         }
 
         private IEnumerator StartBakeNavMesh(Action onComplete = null)
