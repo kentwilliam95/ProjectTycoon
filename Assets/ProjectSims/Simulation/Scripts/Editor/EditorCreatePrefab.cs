@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace Simulation.GroundEditor.Editor
 {
     public class EditorCreatePrefab : MonoBehaviour
     {

@@ -27,8 +27,7 @@ namespace Simulation.GroundEditor
         private Vector2 _direction;
         private float _timeClickTracker;
         private State _pointerState = State.None;
-
-        // public Action<Vector3> OnDragging;
+      
         public Action<Vector3> OnClick;
         public Action<Vector3> OnUpdate;
         public Action<Vector2> OnScrolling;
@@ -39,6 +38,8 @@ namespace Simulation.GroundEditor
         private float _initPinchSize;
         [SerializeField] private float _pinchSensitivity = 100;
         
+        public Vector2 Center => new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+
         private void Start()
         {
             foreach (var pointer in _pointer)
@@ -57,42 +58,31 @@ namespace Simulation.GroundEditor
                 _dictPointer[eventData.pointerId] = eventData.position;
             }
 
-            // if (_dictPointer.Count >= 2)
-            // {
-            //     var currentSize = GetPinchSize();
-            //     var distance = currentSize - _initPinchSize;
-            //     OnPinch?.Invoke(distance/ _pinchSensitivity);
-            //     
-            //     int count = 0;
-            //     foreach (var dict in _dictPointer)
-            //     {
-            //         _pointer[count].transform.position = dict.Value;
-            //         count += 1;
-            //     }
-            //
-            //     return;
-            // }
-
-            // var diff = (_startPos - eventData.position);
-            // _direction = (eventData.position - _startPos).normalized;
-            // var dist = diff.magnitude;
-            // if (dist >= _radius)
-            // {
-            //     _startPos = eventData.position - _direction * _radius;
-            //     _pointer[0].transform.position = _startPos;
-            // }
-            //
-            // _pointer[1].transform.position = eventData.position;
-            // OnDragging?.Invoke(eventData.position);
-            
-            var diff = (_startPos - GetMidPointFromDictionary());
-            _direction = (eventData.position - _startPos).normalized;
-            var dist = diff.magnitude;
-            if (dist >= _radius)
+            switch (_pointerState)
             {
-                _startPos = eventData.position - _direction * _radius;
+                case State.Double:
+                    var currentSize = GetPinchSize();
+                    var distance = currentSize - _initPinchSize;
+                    OnPinch?.Invoke(distance/ _pinchSensitivity);
+                    
+                    int count = 0;
+                    foreach (var dict in _dictPointer)
+                    {
+                        _pointer[count].transform.position = dict.Value;
+                        count += 1;
+                    }
+                    break;
+                
+                case State.Single:
+                    var diff = (_startPos - GetMidPointFromDictionary());
+                    _direction = (eventData.position - _startPos).normalized;
+                    var dist = diff.magnitude;
+                    if (dist >= _radius)
+                    {
+                        _startPos = eventData.position - _direction * _radius;
+                    }
+                    break;
             }
-            // OnDragging?.Invoke(eventData.position);
         }
 
         private void Update()

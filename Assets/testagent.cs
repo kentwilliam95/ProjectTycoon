@@ -41,8 +41,6 @@ public class testagent : MonoBehaviour, IAgent
     {
         path = new NavMeshPath();
         bool valid = NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path);
-        Debug.Log($"Is Valid: {valid}");
-        Debug.Log(path.status);
         Agent.SetPath(path);
     }
 
