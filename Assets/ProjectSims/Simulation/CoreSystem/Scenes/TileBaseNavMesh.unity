@@ -685,11 +685,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cg: {fileID: 468275012}
+  _canvas: {fileID: 468275010}
   _radius: 150
   _clickDelay: 0.3
-  _inner: {fileID: 1088190191}
-  _outer: {fileID: 235337318}
+  _pointer:
+  - {fileID: 1088190191}
+  - {fileID: 235337318}
   _showController: 0
+  _pinchSensitivity: 100
 --- !u!225 &468275012
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1664,7 +1667,7 @@ GameObject:
   - component: {fileID: 1194992313}
   - component: {fileID: 1194992312}
   m_Layer: 0
-  m_Name: Touch Sensor (1)
+  m_Name: Touch Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

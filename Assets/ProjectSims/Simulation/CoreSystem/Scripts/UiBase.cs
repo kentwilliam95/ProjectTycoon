@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,17 @@ namespace Simulation.UI
 {
     public class UiBase : MonoBehaviour
     {
-        [SerializeField] private CanvasGroup _cg;
+        [SerializeField] protected CanvasGroup _cg;
+        [SerializeField] protected Canvas _canvas;
+
+        private void OnValidate()
+        {
+            if (_canvas == null)
+            {
+                _canvas = GetComponent<Canvas>();
+            }
+        }
+
         public virtual void Show()
         {
             _cg.alpha = 1;
