@@ -177,7 +177,7 @@ namespace Simulation.GroundEditor
             return res;
         }
 
-        public (RaycastHit, bool) GetRaycastHitClosestToCamera(int hitCount, Camera camera)
+        private (RaycastHit, bool) GetRaycastHitClosestToCamera(int hitCount, Camera camera)
         {
             float max = float.MaxValue;
             RaycastHit target = new RaycastHit();

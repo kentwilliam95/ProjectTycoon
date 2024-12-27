@@ -7,8 +7,7 @@ namespace Simulation
     public class LightController : MonoBehaviour
     {
         [SerializeField] private Light _light;
-
-        // Update is called once per frame
+        
         void Update()
         {
             var progress = CoreController.DayProgression;

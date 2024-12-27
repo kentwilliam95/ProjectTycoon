@@ -38,15 +38,6 @@ namespace ProjectSims.Simulation.CoreSystem
             _data.Init();
         }
 
-        public Vector3 TopCenter
-        {
-            get
-            {
-                var area = _data.Area;
-                return new Vector3(area.x / 2f, 1f, area.y / 2f);
-            }
-        }
-
         public bool IsPointInsideBoundary(Vector3 point)
         {
             var area = _data.Area;
@@ -148,11 +139,6 @@ namespace ProjectSims.Simulation.CoreSystem
                 yield return null;
             }
             UILoading.Instance.Hide();
-        }
-
-        public GameObject SpawnDecoration(GameObject go, Vector3 position, Vector3 rotation)
-        {
-            return Instantiate(go, position, quaternion.Euler(rotation), TrDecoration);
         }
         
         public T SpawnDecoration<T>(GameObject go, Vector3 position, Quaternion quartenion) where T : UnityEngine.Object

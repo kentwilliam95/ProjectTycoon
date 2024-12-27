@@ -25,10 +25,11 @@ namespace Simulation.UI
 
         private void Update()
         {
-            if (gameObject.activeSelf)
+            if (!gameObject.activeSelf)
             {
-                _spinner.Rotate(Vector3.forward, 90 * Time.deltaTime);
+                return;
             }
+            _spinner.Rotate(Vector3.forward, 90 * Time.deltaTime);
         }
     }
 }

@@ -10,21 +10,12 @@ namespace Simulation
     public class MainCamera : MonoBehaviour
     {
         public static MainCamera Instance;
-        // [SerializeField] CinemachineVirtualCamera _vCam;
         [SerializeField] private Camera _cam;
         
         private float _range;
         private Tweener _tweenerCam;
         
         public Camera Camera => _cam;
-        // public float Orthographic
-        // {
-        //     set
-        //     {
-        //         _vCam.m_Lens.OrthographicSize = value;
-        //     }
-        //     get => _vCam.m_Lens.OrthographicSize;
-        // }
         
         public float Orthographic
         {
@@ -40,11 +31,6 @@ namespace Simulation
             Instance = this;
             _range = _cam.transform.position.magnitude;
         }
-
-        // public void MoveToTarget(Transform target)
-        // {
-        //     _vCam.Follow = target;
-        // }
 
         public void MoveToTarget(Vector3 pos)
         {
