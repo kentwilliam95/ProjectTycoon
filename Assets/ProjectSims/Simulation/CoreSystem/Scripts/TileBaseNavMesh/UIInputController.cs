@@ -35,6 +35,8 @@ namespace Simulation.GroundEditor
         public Action OnPointerRelease;
         
         private Dictionary<int, Vector2> _dictPointer;
+        
+        [Header("Settings")]
         private float _initPinchSize;
         [SerializeField] private float _pinchSensitivity = 100;
         
@@ -162,12 +164,10 @@ namespace Simulation.GroundEditor
 
         private float GetPinchSize()
         {
-            int count = 0;
             Vector2 diff = Vector3.zero;
             foreach (var data in _dictPointer)
             {
                 diff = data.Value - diff;
-                count += 1;
             }
 
             return diff.magnitude;

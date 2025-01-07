@@ -8,7 +8,6 @@ namespace Simulation.UI
 {
     public class UiBase : MonoBehaviour
     {
-
         [SerializeField] protected CanvasGroup _cg;
         [SerializeField] protected Canvas _canvas;
 

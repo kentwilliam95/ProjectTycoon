@@ -5,7 +5,7 @@ using ProjectSims.Simulation.CoreSystem.Scripts.Interface;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class testagent : MonoBehaviour, IAgent
+public class TestAgent : MonoBehaviour, IAgent
 {
     public Transform target;
     public NavMeshAgent Agent;
